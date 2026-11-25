@@ -365,14 +365,14 @@ CONTENT = [
     'Hacerse una idea de la magnitud de la Tierra corrobora el argumento de Simon. La superficie de la Tierra es de 510.1 millones de km², y la superficie total utilizada para la minería entre los años 2000 y 2017 se estimó en 57 277 km², o el 0.011 % de la superficie del planeta. Para ponerlo en perspectiva, si la superficie de la Tierra tuviera el tamaño de un campo de fútbol (105 m × 68 m, o 7 140 m²), la superficie de todas las minas del mundo sería de 0.785 m², aproximadamente el tamaño de la superficie de un escritorio pequeño (un escritorio de 122 cm × 61 cm tiene una superficie de 0.744 m²).',
 
     ("figure", fig2_cancha_escritorio(),
-     "Figura 2 · Si la superficie de la Tierra fuera un campo de fútbol, la superficie de todas las minas sería la de un escritorio pequeño."),
+     "Figura 2 · Si la superficie de la Tierra fuera un campo de fútbol, la superficie de todas las minas sería la de un escritorio pequeño"),
 
     'El diámetro de la Tierra es de 12 742 kilómetros. En cambio, la mina más profunda del mundo, la mina de oro de Mponeng, cerca de Johannesburgo, tiene «sólo» entre 3.16 km y 3.84 km de profundidad, es decir, entre el 0.024 % y el 0.03 % del diámetro de la Tierra. Para ponerlo en perspectiva, si la Tierra fuera una bola de un metro de diámetro, el agujero más profundo jamás excavado en su corteza tendría unos 0.027 centímetros, menos que el grosor de tres páginas de este libro. La inmensa mayoría de la superficie de la Tierra no ha sido excavada en busca de recursos, y en los pocos lugares donde hemos excavado apenas hemos arañado, literalmente, la superficie.',
 
     'La mayoría de las minas tiene una profundidad cercana a los 300 metros. Supongamos muy generosamente una profundidad promedio de un kilómetro: el volumen total de minas en el periodo 2000-2017 sería de 57 277 km³. El volumen de la Tierra es de aproximadamente 1 083 210 000 000 km³ (alrededor de un billón de kilómetros cúbicos). El volumen de todas las minas del mundo es, por lo tanto, el 0.000005 % del volumen de la Tierra. La Tierra es 18 millones de veces más grande que todas las minas que existen en ella. Si el volumen de la Tierra fuera el de una alberca olímpica, todas las minas del mundo tendrían aproximadamente el tamaño de medio vaso de agua.',
 
     ("figure", fig3_alberca_vaso(),
-     "Figura 3 · Si la Tierra fuera una alberca olímpica, todas nuestras minas serían medio vaso de agua."),
+     "Figura 3 · Si la Tierra fuera una alberca olímpica, todas nuestras minas serían medio vaso de agua"),
 
     'Si todos los recursos que consumen los seres humanos proceden del equivalente a medio vaso de la alberca olímpica que es la Tierra, se hace evidente por qué preocuparse por la cantidad total de recursos es tan desacertado. Las estimaciones más conservadoras concluyen que la abundancia total de cualquier sustancia natural en la corteza terrestre es muchos múltiplos de la cantidad total que los seres humanos consumen de ella. Es bastante probable que la abundancia total de cualquier metal en la corteza terrestre equivalga a millones de años de consumo humano. El límite real de cuánto podemos producir de cada metal en un año determinado sigue siendo la cantidad de tiempo y recursos que dediquemos a su producción y la cantidad de otros bienes y servicios a los que estemos dispuestos a renunciar.',
 
@@ -385,7 +385,7 @@ CONTENT = [
     'Los economistas Gale Pooley y Marian Tupy construyeron un índice en honor a Julian Simon, que mide los precios de cincuenta productos básicos en función de los salarios. Encontraron que, entre 1980 y 2020, el tiempo necesario para ganar una canasta de cincuenta productos básicos ha disminuido un 75.2 %. Una hora de trabajo en 2020 compraba 4.03 veces más de esos productos que en 1980. La abundancia tuvo una tasa de crecimiento anual del 3.55 %, es decir, se duplicó cada veinte años. A pesar de que la población humana aumentó un 75.8 % en esos cuarenta años, los precios de cincuenta productos básicos disminuyeron tres cuartas partes en términos del tiempo humano necesario para adquirirlos.',
 
     ("figure", fig4_commodities(),
-     "Figura 4 · Variación de precio (en tiempo humano) y multiplicador de abundancia para 50 productos básicos, 1980 vs. 2020. El PROMEDIO está marcado."),
+     "Figura 4 · Cambios en el precio y la abundancia de cincuenta productos básicos entre 1980 y 2020"),
 
     'La única escasez es el tiempo que tienen los seres humanos para producir estos productos básicos, y por eso los salarios globales siguen aumentando, lo que hace que los productos y materiales sean cada vez más baratos en términos de trabajo humano. El único recurso cuyo precio ha subido casi continuamente a lo largo de la historia es el tiempo humano, medido por los salarios.',
 
@@ -394,12 +394,12 @@ CONTENT = [
     'El petróleo, el sustento vital de las economías modernas, es el mejor ejemplo. Aunque el consumo y la producción de petróleo siguen aumentando año tras año, las reservas probadas crecen a un ritmo aún más rápido. Según la <em>Revisión estadística de la energía mundial</em> de British Petroleum, la producción anual de petróleo en 2015 fue un 46 % superior a la de 1980, mientras que el consumo fue un 55 % mayor. Las reservas, por su parte, aumentaron un 148 %, aproximadamente el triple que el aumento de la producción y el consumo.',
 
     ("figure", fig5_oil(),
-     "Figura 5 · Petróleo, 1980-2020: el consumo total sube poco y las reservas probadas totales suben el triple, en miles de millones de barriles."),
+     "Figura 5 · Consumo de petróleo y reservas probadas de petróleo"),
 
     'Se pueden elaborar estadísticas similares para recursos con diversos grados de prevalencia en la corteza terrestre. La rareza de un recurso determina el costo relativo de extraerlo de la Tierra. Los metales más comunes, como el hierro y el cobre, son fáciles de encontrar y relativamente baratos. Los más raros, como la plata y el oro, son más caros. Sin embargo, el límite a la cantidad que podemos producir de cada uno de esos metales, y no su cantidad absoluta, sigue siendo el costo de oportunidad de su producción. No hay mejor prueba de ello que el hecho de que uno de los metales más raros (si no el más raro) de la corteza terrestre, el oro, se extrae desde hace miles de años y se sigue extrayendo en cantidades cada vez mayores a medida que avanza la tecnología.',
 
     ("figure", fig6_gold(),
-     "Figura 6 · Reservas totales de oro en toneladas (1900-2020) y crecimiento anual de las reservas. Las reservas crecen de forma sostenida; el ritmo anual oscila entre 1 % y 3 %."),
+     "Figura 6 · Producción mundial anual de oro"),
 
     'La escasez de los materiales es siempre relativa, siendo las diferencias en el costo de extracción las que determinan los grados de escasez.',
 
