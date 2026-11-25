@@ -265,11 +265,11 @@ def main():
                  out, count=1, flags=re.DOTALL)
     out = re.sub(r'<article class="page"[^>]*>.*?</article>',
                  lambda _m: article, out, count=1, flags=re.DOTALL)
-    # nav-foot: no hay prev (es el cap 1), next = valor (cap 2, por escribir)
+    # nav-foot: prev = índice (cap 1), next = valor (cap 2)
     new_nav = ('<nav class="nav-foot">'
                '<a class="prev" href="index.html">Índice</a>'
                '<a class="idx" href="index.html">Índice</a>'
-               '<span></span></nav>')
+               '<a class="next" href="valor.html">Valor</a></nav>')
     out = re.sub(r'<nav class="nav-foot">.*?</nav>',
                  lambda _m: new_nav, out, count=1, flags=re.DOTALL)
     out = out.replace('audio/tres-regimenes.mp3', 'audio/accion-humana.mp3')

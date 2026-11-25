@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- usabilidad-v1 -->
+<script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('ui:theme')||'sepia';if(t!=='oscuro')d.setAttribute('data-theme',t);var f=localStorage.getItem('ui:fontscale');if(f)d.style.setProperty('--font-scale',f);var a=localStorage.getItem('ui:ajas');if(a==='on')d.setAttribute('data-ajas','on');}catch(e){}})();</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valor — Principios Económicos</title>
+<style>
+:root {
+  --bg: #1c1c1c;
+  --surface: #262626;
+  --ink: #ebe9e4;
+  --ink-soft: #9a988f;
+  --rule: #3a3a38;
+  --verde: #FF7A18;
+  --rojo: #8A8A86;
+  --font-body: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: calc(19px * var(--font-scale, 1)); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.75; font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1; position: relative; overflow-x: hidden; }
+/* Glow difuminado naranja detrás de la cabecera (se desvanece al bajar) */
+body::before { content: ""; position: absolute; top: -120px; left: 50%; transform: translateX(-50%); width: 900px; max-width: 130vw; height: 720px; background: radial-gradient(ellipse 50% 50% at center, rgba(255,122,24,0.20) 0%, rgba(255,122,24,0.06) 38%, transparent 70%); pointer-events: none; z-index: 0; }
+.nav-top, .page, .audio-pill { position: relative; z-index: 1; }
+.page { max-width: 720px; margin: 0 auto; padding: 5rem 1.5rem 8rem; }
+.chapter-eyebrow { font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--verde); text-align: center; margin-bottom: 1.2rem; }
+.chapter-title { font-size: 2.6rem; font-weight: 400; text-align: center; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.6rem; }
+.chapter-subtitle { text-align: center; font-size: 1.1rem; font-style: italic; color: var(--ink-soft); margin-bottom: 4rem; }
+.ornament { text-align: center; color: var(--verde); font-size: 1.2rem; margin: 0 auto 3.5rem; letter-spacing: 0.5em; }
+.prose p { font-size: 1.12rem; line-height: 1.8; margin-bottom: 1.5rem; }
+.prose p.lead { font-size: 1.28rem; line-height: 1.7; color: var(--ink); margin-bottom: 1.8rem; }
+.prose .lead::first-letter { font-size: 3.6rem; font-weight: 600; float: left; line-height: 0.82; margin: 0.08em 0.12em -0.1em 0; color: var(--verde); }
+.prose em { font-style: italic; }
+.prose strong { font-weight: 600; color: var(--ink); }
+.term-verde { color: var(--verde); font-style: italic; }
+.term-rojo { color: var(--rojo); font-style: italic; }
+.section-num { display: block; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--verde); margin-bottom: 0.6rem; margin-top: 3.5rem; }
+blockquote { margin: 2.2rem 0; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 2px solid var(--verde); font-style: italic; color: var(--ink-soft); font-size: 1.06rem; line-height: 1.65; }
+blockquote .cite { display: block; margin-top: 0.6rem; font-style: italic; font-size: 0.86rem; color: var(--ink-soft); opacity: 0.8; }
+blockquote .cite::before { content: "— "; }
+.cita-autor { background: var(--surface); margin: 2.4rem 0; padding: 1.8rem 2rem; border-radius: 4px; font-size: 1.06rem; line-height: 1.65; }
+.cita-autor .texto { display: block; font-style: italic; }
+.cita-autor .atribucion { display: block; margin-top: 1rem; text-align: right; font-size: 0.86rem; color: var(--ink-soft); letter-spacing: 0.02em; }
+.cita-autor .atribucion em { font-style: italic; }
+.profundizacion { margin: 2.8rem 0; padding: 1.6rem 1.8rem; background: var(--surface); border-radius: 6px; border: 1px solid var(--rule); }
+.profundizacion .tag { display: block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.8rem; }
+.profundizacion p { font-size: 1rem; line-height: 1.7; color: var(--ink-soft); margin-bottom: 0.8rem; }
+.profundizacion p:last-child { margin-bottom: 0; }
+.pendiente { margin: 2.5rem 0; padding: 1.4rem 1.6rem; border: 1px dashed var(--rule); border-radius: 6px; font-style: italic; color: var(--ink-soft); font-size: 0.98rem; text-align: center; }
+.nav-top { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 0; }
+.nav-top a { font-size: 0.85rem; color: var(--ink-soft); text-decoration: none; letter-spacing: 0.04em; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.nav-top a:hover { border-bottom-color: var(--verde); }
+.nav-foot { max-width: 720px; margin: 4rem auto 0; padding: 2rem 1.5rem 0; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.nav-foot a { font-size: 0.9rem; color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.nav-foot a:hover { border-bottom-color: var(--verde); }
+.nav-foot .prev::before { content: "← "; color: var(--ink-soft); }
+.nav-foot .next::after { content: " →"; color: var(--ink-soft); }
+.nav-foot .idx { color: var(--ink-soft); }
+
+/* highlights MVP — instalado por tools/add_highlights.py */
+.w.hl { background-color: transparent; box-shadow: inset 0 -1.5px 0 rgba(255,238,0,0.95); padding: 0 0.5em; margin: 0 -0.5em; border-radius: 0; }
+.w.hl:hover { box-shadow: inset 0 -2.5px 0 rgba(255,238,0,1); }
+.w.activa.hl { box-shadow: inset 0 -1.5px 0 rgba(255,122,24,0.95); }
+.w.leida.hl { opacity: 1; }
+body.karaoke-off .w.hl { box-shadow: inset 0 -1.5px 0 rgba(255,238,0,0.95) !important; background-color: transparent !important; color: inherit; }
+.hl-toolbar { position: absolute; display: none; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 3px; box-shadow: 0 4px 16px -4px rgba(0,0,0,0.6); z-index: 200; font-family: var(--font-body); white-space: nowrap; -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); }
+.hl-toolbar.show { display: block; }
+.hl-btn { background: transparent; border: none; color: var(--ink); padding: 0.42rem 0.85rem; cursor: pointer; border-radius: 4px; font-family: inherit; font-size: 0.84rem; letter-spacing: 0.02em; }
+.hl-btn:hover { background: var(--rule); }
+.hl-btn-rm { color: var(--ink-soft); }
+@media (max-width: 640px) { html { font-size: calc(17px * var(--font-scale, 1)); } .page { padding: 3rem 1.2rem 5rem; } .chapter-title { font-size: 2rem; } }
+.w { cursor: pointer; transition: color 0.25s ease, background-color 0.15s ease; border-radius: 2px; }
+.w:hover { color: var(--verde); }
+.w.leida { color: var(--ink-soft); opacity: 0.85; }
+.w.activa { background-color: rgba(255,122,24,0.18); color: var(--verde); padding: 0 0.12em; }
+.g { transition: color 0.25s ease, opacity 0.25s ease; }
+.g.leida { color: var(--ink-soft); opacity: 0.85; }
+body.karaoke-off .w { cursor: text; }
+body.karaoke-off .w:hover { color: inherit; }
+body.karaoke-off .w.leida, body.karaoke-off .w.activa,
+body.karaoke-off .g.leida { color: inherit; background-color: transparent; opacity: 1; padding: 0; }
+
+/* AUDIO PILL v2 — flotante, colapsa/expande, con skip + toggle karaoke + memoria */
+.audio-pill { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 100; display: flex; align-items: center; background: rgba(38,38,38,0.92); border: 1px solid var(--rule); border-radius: 28px; box-shadow: 0 12px 36px -14px rgba(0,0,0,0.75), 0 2px 8px -2px rgba(0,0,0,0.25); font-family: var(--font-body); height: 48px; padding: 4px; overflow: hidden; -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); transition: width 0.32s cubic-bezier(0.4,0,0.2,1), background 0.2s, box-shadow 0.2s; width: 56px; }
+.audio-pill[data-state="expanded"] { width: min(460px, calc(100vw - 2.5rem)); }
+.audio-pill:hover { box-shadow: 0 16px 40px -12px rgba(0,0,0,0.85), 0 4px 10px -2px rgba(0,0,0,0.3); }
+.ap-play { flex: 0 0 40px; height: 40px; border-radius: 50%; border: none; background: var(--verde); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, transform 0.1s; }
+.ap-play:hover { background: #d96a14; transform: scale(1.04); }
+.ap-play:active { transform: scale(0.96); }
+.ap-play:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+.ap-play svg { width: 16px; height: 16px; fill: currentColor; pointer-events: none; }
+.ap-icon-play { margin-left: 2px; }
+.ap-meta { display: flex; align-items: center; gap: 0.35rem; margin-left: 0.4rem; margin-right: 0.2rem; flex: 1; min-width: 0; opacity: 0; transform: translateX(-4px); transition: opacity 0.18s 0.08s, transform 0.28s cubic-bezier(0.4,0,0.2,1); }
+.audio-pill[data-state="expanded"] .ap-meta { opacity: 1; transform: translateX(0); }
+.audio-pill[data-state="collapsed"] .ap-meta { pointer-events: none; }
+.ap-btn { flex: 0 0 28px; height: 28px; border-radius: 50%; background: transparent; border: none; color: var(--ink-soft); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, color 0.2s; }
+.ap-btn:hover { background: var(--rule); color: var(--ink); }
+.ap-btn:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-btn svg { width: 14px; height: 14px; pointer-events: none; }
+.ap-btn.active { color: var(--verde); }
+.ap-skip svg { fill: currentColor; stroke: none; }
+.ap-skip .skip-label { font: 600 7px/1 ui-monospace, monospace; fill: currentColor; }
+.ap-karaoke svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.ap-karaoke .strike { display: none; }
+body.karaoke-off .ap-karaoke .strike { display: block; }
+.ap-track { flex: 1; min-width: 40px; height: 24px; position: relative; cursor: pointer; }
+.ap-rail { position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--rule); transform: translateY(-50%); border-radius: 1px; }
+.ap-fill { position: absolute; top: 50%; left: 0; height: 2px; width: 0; background: var(--verde); transform: translateY(-50%); border-radius: 1px; transition: width 0.1s linear; }
+.ap-thumb { position: absolute; top: 50%; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--verde); transform: translate(-50%,-50%); opacity: 0; transition: opacity 0.2s; }
+.audio-pill:hover .ap-thumb, .ap-track:focus-visible .ap-thumb, .ap-track.dragging .ap-thumb { opacity: 1; transform: translate(-50%,-50%) scale(1.3); }
+.ap-time { font-size: 0.78rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; letter-spacing: 0.01em; white-space: nowrap; min-width: 78px; text-align: right; } .ap-duration { color: var(--ink-soft); opacity: 0.75; } .ap-sep { color: var(--ink-soft); opacity: 0.6; padding: 0 0.05em; }
+.audio-pill.playing .ap-time { color: var(--verde); }
+.ap-rate { flex: 0 0 auto; background: transparent; border: 1px solid var(--rule); color: var(--ink-soft); border-radius: 12px; height: 24px; padding: 0 8px; font-size: 0.7rem; font-family: inherit; cursor: pointer; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; white-space: nowrap; transition: color 0.2s, border-color 0.2s, background 0.2s; }
+.ap-rate:hover { color: var(--ink); border-color: var(--ink-soft); }
+.ap-rate:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-rate.active { color: var(--verde); border-color: var(--verde); }
+.ap-close { flex: 0 0 26px; height: 26px; border-radius: 50%; background: transparent; border: none; color: var(--ink-soft); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, color 0.2s; }
+.ap-close:hover { background: var(--rule); color: var(--ink); }
+.ap-close:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-close svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; pointer-events: none; }
+.audio-pill[data-state="collapsed"]::after { content: attr(data-duration); position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%); background: var(--surface); border: 1px solid var(--rule); color: var(--ink-soft); padding: 0.25rem 0.6rem; border-radius: 12px; font-size: 0.72rem; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.audio-pill[data-state="collapsed"]:hover::after, .audio-pill[data-state="collapsed"]:focus-within::after { opacity: 1; }
+.ap-resume-hint { position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%); background: var(--surface); border: 1px solid var(--verde); color: var(--verde); padding: 0.3rem 0.7rem; border-radius: 12px; font-size: 0.72rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.ap-resume-hint.show { opacity: 1; }
+@media (max-width: 640px) {
+  .audio-pill { right: 0.85rem; bottom: 0.85rem; }
+  .audio-pill[data-state="expanded"] { left: 0.85rem; right: 0.85rem; width: auto; }
+  .audio-pill[data-state="collapsed"]::after { display: none; }
+  .ap-karaoke { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .audio-pill, .ap-fill, .ap-play, .ap-meta { transition: none; }
+}
+
+/* ===== usabilidad-v1 ===== */
+:root[data-theme="sepia"]{ --bg:#f3ead6; --surface:#e9dcc0; --ink:#2f2718; --ink-soft:#6e6048; --rule:#d6c9ab; }
+:root[data-theme="claro"]{ --bg:#fbf9f5; --surface:#eeeae3; --ink:#1a1916; --ink-soft:#5d584f; --rule:#e2ddd3; }
+:root[data-theme="sepia"] body::before,
+:root[data-theme="claro"] body::before{ opacity:.5; }
+
+.read-progress{ position:fixed; top:0; left:0; height:3px; width:100%; background:transparent; z-index:300; pointer-events:none; }
+.read-progress > i{ display:block; height:100%; width:0; background:var(--verde); transition:width .08s linear; }
+
+.ui-settings{ position:fixed; top:14px; right:14px; z-index:260; font-family:var(--font-body); }
+.ui-gear{ width:42px; height:42px; border-radius:50%; border:1px solid var(--rule); background:var(--surface); color:var(--ink-soft); cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px -6px rgba(0,0,0,.5); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); }
+.ui-gear:hover{ color:var(--ink); }
+.ui-gear svg{ width:20px; height:20px; }
+.ui-panel{ position:absolute; top:50px; right:0; width:214px; background:var(--surface); border:1px solid var(--rule); border-radius:12px; padding:14px; box-shadow:0 12px 32px -8px rgba(0,0,0,.55); display:none; }
+.ui-panel.open{ display:block; }
+.ui-panel h4{ font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 .55rem; font-weight:400; }
+.ui-row{ display:flex; gap:6px; margin-bottom:13px; }
+.ui-row:last-child{ margin-bottom:0; }
+.ui-row button{ flex:1; padding:.5rem .2rem; border:1px solid var(--rule); background:transparent; color:var(--ink-soft); border-radius:8px; cursor:pointer; font-family:var(--font-body); font-size:.9rem; line-height:1; }
+.ui-row button.active{ background:var(--ink); color:var(--bg); border-color:var(--ink); }
+
+.chapter-meta{ font-family:var(--font-body); font-size:.82rem; color:var(--ink-soft); letter-spacing:.02em; margin-top:.6rem; }
+
+.resume-read{ position:fixed; left:16px; bottom:18px; z-index:240; background:var(--surface); color:var(--ink); border:1px solid var(--rule); border-radius:22px; padding:.55rem .95rem; font-family:var(--font-body); font-size:.86rem; cursor:pointer; box-shadow:0 6px 20px -6px rgba(0,0,0,.5); display:none; }
+.resume-read.show{ display:inline-flex; align-items:center; gap:.4rem; }
+
+.next-card{ position:fixed; left:50%; bottom:92px; transform:translateX(-50%) translateY(10px); z-index:250; background:var(--surface); border:1px solid var(--rule); border-radius:14px; padding:1rem 1.2rem; box-shadow:0 16px 40px -10px rgba(0,0,0,.6); font-family:var(--font-body); text-align:center; max-width:88vw; opacity:0; pointer-events:none; transition:opacity .3s, transform .3s; }
+.next-card.show{ opacity:1; transform:translateX(-50%) translateY(0); pointer-events:auto; }
+.next-card .nc-label{ font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); }
+.next-card .nc-title{ font-size:1.05rem; color:var(--ink); margin:.3rem 0 .85rem; }
+.next-card .nc-actions{ display:flex; gap:.5rem; justify-content:center; }
+.next-card button, .next-card a{ border:1px solid var(--rule); background:transparent; color:var(--ink); border-radius:20px; padding:.45rem 1rem; font-family:var(--font-body); font-size:.9rem; cursor:pointer; text-decoration:none; }
+.next-card .nc-go{ background:var(--verde); border-color:var(--verde); color:#fff; }
+
+.skip-link{ position:absolute; left:-999px; top:0; z-index:400; background:var(--verde); color:#fff; padding:.6rem 1rem; border-radius:0 0 8px 0; font-family:var(--font-body); }
+.skip-link:focus{ left:0; }
+
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus-visible{ outline:2px solid var(--verde); outline-offset:2px; border-radius:3px; }
+.audio-pill .ap-play{ min-width:44px; min-height:44px; }
+@media (max-width:640px){ .ui-settings{ top:10px; right:10px; } .resume-read{ bottom:14px; } }
+
+/* hl-colors-v2 */
+:root{
+  --hl-color-a: rgba(255,238,0,0.95);   /* amarillo · importante */
+  --hl-color-n: rgba(255,150,40,0.95);  /* naranja  · cita/dato */
+  --hl-color-v: rgba(120,210,120,0.95); /* verde    · me convence */
+  --hl-color-c: rgba(255,128,128,0.95); /* coral    · dudo/revisar */
+}
+:root[data-theme="sepia"]{
+  --hl-color-a: rgba(212,160,0,0.9);
+  --hl-color-n: rgba(208,110,30,0.9);
+  --hl-color-v: rgba(80,150,80,0.9);
+  --hl-color-c: rgba(200,80,80,0.9);
+}
+:root[data-theme="claro"]{
+  --hl-color-a: rgba(218,160,0,0.95);
+  --hl-color-n: rgba(214,108,28,0.95);
+  --hl-color-v: rgba(64,140,64,0.95);
+  --hl-color-c: rgba(204,72,72,0.95);
+}
+.hl[data-c="a"]{ box-shadow: inset 0 -1.5px 0 var(--hl-color-a) !important; }
+.hl[data-c="n"]{ box-shadow: inset 0 -1.5px 0 var(--hl-color-n) !important; }
+.hl[data-c="v"]{ box-shadow: inset 0 -1.5px 0 var(--hl-color-v) !important; }
+.hl[data-c="c"]{ box-shadow: inset 0 -1.5px 0 var(--hl-color-c) !important; }
+.hl[data-c="a"]:hover{ box-shadow: inset 0 -2.5px 0 var(--hl-color-a) !important; }
+.hl[data-c="n"]:hover{ box-shadow: inset 0 -2.5px 0 var(--hl-color-n) !important; }
+.hl[data-c="v"]:hover{ box-shadow: inset 0 -2.5px 0 var(--hl-color-v) !important; }
+.hl[data-c="c"]:hover{ box-shadow: inset 0 -2.5px 0 var(--hl-color-c) !important; }
+
+.hl-swatch{
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 1.5px solid transparent;
+  background: transparent; cursor: pointer; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  margin: 0 2px;
+  position: relative;
+}
+.hl-swatch::after{
+  content: ""; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--sw-color);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
+}
+.hl-swatch[data-c="a"]{ --sw-color: var(--hl-color-a); }
+.hl-swatch[data-c="n"]{ --sw-color: var(--hl-color-n); }
+.hl-swatch[data-c="v"]{ --sw-color: var(--hl-color-v); }
+.hl-swatch[data-c="c"]{ --sw-color: var(--hl-color-c); }
+.hl-swatch:hover{ border-color: var(--rule); }
+.hl-swatch.current{ border-color: var(--ink); }
+.hl-toolbar .hl-divider{ display:inline-block; width:1px; height:18px; background: var(--rule); margin: 0 4px; vertical-align: middle; }
+
+/* En móvil la barra se ancla al fondo (lejos del menú nativo del SO),
+   más grande para tocar bien con el dedo. En desktop sigue contextual. */
+@media (max-width: 640px) {
+  .hl-toolbar {
+    position: fixed !important;
+    left: 16px !important; right: 16px !important;
+    top: auto !important; bottom: 84px !important;
+    max-width: none;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    padding: 12px 14px;
+    box-shadow: 0 20px 44px -10px rgba(0,0,0,0.75);
+    text-align: center;
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+  .hl-swatch{ width: 38px; height: 38px; margin: 0 4px; }
+  .hl-swatch::after{ width: 22px; height: 22px; }
+  .hl-toolbar .hl-btn{ padding: 0.62rem 1rem; font-size: 0.92rem; }
+  .hl-toolbar .hl-divider{ height: 22px; margin: 0 6px; }
+}
+
+/* pill-polish-v1 */
+:root[data-theme="sepia"] .audio-pill,
+:root[data-theme="claro"] .audio-pill {
+  background: var(--surface);
+  border-color: var(--rule);
+  box-shadow:
+    0 14px 32px -14px rgba(80, 60, 30, 0.32),
+    0 4px 10px -2px rgba(80, 60, 30, 0.12),
+    0 0 0 3px rgba(255, 122, 24, 0.06);
+}
+:root[data-theme="sepia"] .audio-pill:hover,
+:root[data-theme="claro"] .audio-pill:hover {
+  box-shadow:
+    0 18px 40px -12px rgba(80, 60, 30, 0.42),
+    0 6px 14px -2px rgba(80, 60, 30, 0.18),
+    0 0 0 4px rgba(255, 122, 24, 0.10);
+}
+:root[data-theme="sepia"] .audio-pill .ap-play,
+:root[data-theme="claro"] .audio-pill .ap-play {
+  box-shadow:
+    0 4px 12px -2px rgba(255, 122, 24, 0.55),
+    0 2px 4px -1px rgba(0, 0, 0, 0.15);
+}
+:root[data-theme="sepia"] .audio-pill .ap-play:hover,
+:root[data-theme="claro"] .audio-pill .ap-play:hover {
+  box-shadow:
+    0 6px 16px -2px rgba(255, 122, 24, 0.7),
+    0 3px 6px -1px rgba(0, 0, 0, 0.2);
+}
+/* En claro/sepia, el texto del rate y los iconos secundarios necesitan tomar
+   los colores del tema (algunos estaban hardcoded a tono oscuro). */
+:root[data-theme="sepia"] .audio-pill .ap-rate,
+:root[data-theme="claro"] .audio-pill .ap-rate { color: var(--ink-soft); border-color: var(--rule); }
+:root[data-theme="sepia"] .audio-pill .ap-rate:hover,
+:root[data-theme="claro"] .audio-pill .ap-rate:hover { color: var(--ink); border-color: var(--ink-soft); }
+
+/* Pequeño realce permanente del play en oscuro también, para que el botón
+   principal sienta más «vivo» en cualquier tema (cambio sutil). */
+.audio-pill .ap-play {
+  box-shadow: 0 3px 10px -2px rgba(255, 122, 24, 0.35);
+}
+.audio-pill .ap-play:hover {
+  box-shadow: 0 5px 14px -2px rgba(255, 122, 24, 0.5);
+}
+
+/* ===== Citas en bloque — alineadas a la izquierda, filete fino gris ===== */
+.prose .pull-quote {
+  margin: 2.4rem 0; padding: 0.3rem 0 0.3rem 1.5rem;
+  border-left: 2px solid var(--rule);
+}
+.prose .pull-quote p {
+  font-size: 1.06rem; font-style: italic; line-height: 1.7; color: var(--ink); margin: 0 0 0.7rem;
+}
+.prose .pull-quote cite {
+  display: block; font-style: italic; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft);
+}
+
+/* ===== Ajás (feature de edición — invisible por defecto) =====
+   Un párrafo marcado como <p class="aja"> es donde vive el "clic" conceptual
+   del capítulo. Cuando el interruptor del índice está apagado (sin atributo
+   data-ajas en el html), no hay ninguna regla aplicada: el párrafo se ve
+   exactamente igual que cualquier otro. Cuando se prende, recibe un filete
+   sutil a la izquierda y un fondo levísimo del color de acento del libro.
+   El texto no cambia de tamaño ni de posición —solo cobra contorno—. */
+[data-ajas="on"] .prose .aja {
+  border-left: 2px solid var(--verde);
+  background: rgba(255, 122, 24, 0.06);
+  padding: 0.4rem 1rem 0.4rem 1.1rem;
+  margin-left: -1.1rem;
+  margin-right: -1rem;
+  border-radius: 2px 6px 6px 2px;
+}
+
+/* ===== Subtítulos de sección (h2) ===== */
+.prose h2.section-subtitle {
+  font-family: var(--font-body); font-weight: 400;
+  font-size: 1.15rem; letter-spacing: 0.02em;
+  color: var(--ink); margin: 2.6rem 0 0.9rem;
+  padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule);
+}
+/* ===== Sub-subtítulos (h3, para 2.1.1, 2.1.2, ...) ===== */
+.prose h3.section-subsubtitle {
+  font-family: var(--font-body); font-weight: 400; font-style: italic;
+  font-size: 1.0rem; letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  margin: 1.9rem 0 0.6rem;
+}
+/* ===== Citas en bloque ===== */
+.prose .pull-quote {
+  margin: 2.4rem 0; padding: 0.3rem 0 0.3rem 1.5rem;
+  border-left: 2px solid var(--rule);
+}
+.prose .pull-quote p {
+  font-size: 1.06rem; font-style: italic; line-height: 1.7; color: var(--ink); margin: 0 0 0.7rem;
+}
+.prose .pull-quote cite {
+  display: block; font-style: italic; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft);
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<div class="read-progress" aria-hidden="true"><i></i></div>
+<div class="ui-settings">
+  <button class="ui-gear" aria-label="Ajustes de lectura" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+  </button>
+  <div class="ui-panel" role="menu" aria-label="Ajustes de lectura">
+    <h4>Tema</h4>
+    <div class="ui-row" data-group="theme">
+      <button data-theme-val="oscuro">Oscuro</button>
+      <button data-theme-val="sepia">Sepia</button>
+      <button data-theme-val="claro">Claro</button>
+    </div>
+    <h4>Tamaño del texto</h4>
+    <div class="ui-row" data-group="fs">
+      <button data-fs="0.9" style="font-size:.8rem">A</button>
+      <button data-fs="1">A</button>
+      <button data-fs="1.15" style="font-size:1.15rem">A</button>
+      <button data-fs="1.3" style="font-size:1.3rem">A</button>
+    </div>
+  </div>
+</div>
+
+<nav class="nav-top"><a href="index.html">← Índice</a></nav>
+
+<article class="page" id="contenido" tabindex="-1">
+
+  <div class="chapter-eyebrow">Parte I · Fundamentos</div>
+  <h1 class="chapter-title">Valor</h1>
+  <p class="chapter-subtitle">Saifedean Ammous — Principios de Economía</p>
+
+  <div class="ornament">• • •</div>
+
+  <div class="prose">
+
+    <blockquote class="pull-quote">
+      <p>Así pues, el valor no es algo inherente a los bienes, ni una propiedad de los mismos, ni una cosa independiente que exista por sí misma. Es un juicio que hacen los hombres economizadores sobre la importancia de los bienes que disponen para la conservación de su vida y de su bienestar. Por lo tanto, el valor no existe fuera de la conciencia de los hombres.</p>
+      <cite class="no-audio">Carl Menger</cite>
+    </blockquote>
+
+    <p class="lead">El primer capítulo fue una introducción metodológica al campo de la economía, ilustrando el enfoque austriaco centrado en la acción humana. En este capítulo pasamos a la esencia de la economía, sus conceptos fundamentales y las principales cuestiones que trata de abordar.</p>
+    <p>El economista austriaco Carl Menger sentó las bases de la economía moderna a finales del siglo XIX. Aunque la economía como campo de investigación existía desde los tiempos de Aristóteles, la explicación de Menger de la naturaleza subjetiva del valor y de las decisiones económicas, y su introducción del análisis marginal, revolucionaron el campo y le dieron una sólida base teórica y metodológica, permitiendo un análisis sistemático de cómo los seres humanos economizan y actúan. <em>Principios de Economía</em>, escrito en 1871, tal vez sea el libro de texto de economía más antiguo que sigue siendo relevante y legible. Este capítulo resume los conceptos fundamentales sobre los que Menger construyó el análisis económico: el valor subjetivo y el análisis marginal.</p>
+
+    <h2 class="section-subtitle">Utilidad y valor</h2>
+    <h3 class="section-subsubtitle">Bienes</h3>
+    <p>Menger define un bien como algo útil que podemos destinar a la satisfacción de necesidades humanas. Para que algo se convierta en un bien, primero es necesario que exista una necesidad humana; segundo, que las propiedades del bien puedan causar la satisfacción de esa necesidad; tercero, que los seres humanos tengan conocimiento de esta conexión causal y, por último, que tener control sobre el bien sea suficiente para destinarlo a la satisfacción de la necesidad humana.</p>
+    <h3 class="section-subsubtitle">Utilidad</h3>
+    <p>La utilidad es la capacidad de un bien para satisfacer necesidades humanas. La utilidad depende de nuestra capacidad para comprender la conexión entre un bien y la necesidad que satisface. La utilidad es un prerrequisito general para que un objeto sea un bien. Sólo si algo puede ofrecer utilidad puede ser considerado un bien por los seres humanos.</p>
+    <h3 class="section-subsubtitle">Escasez</h3>
+    <p>Los bienes pueden dividirse en dos categorías: económicos y no económicos. La distinción entre ambos es la escasez: la demanda de bienes económicos es siempre superior a la cantidad ofrecida; mientras que, en el caso de los bienes no económicos, su oferta siempre supera las cantidades demandadas por los seres humanos.</p>
+    <p>Un bien no económico es un bien disponible en cantidades superiores a la demanda del mismo, lo cual imposibilita que haya rivalidad o competencia por obtenerlo. El mejor ejemplo es el aire, que es esencial para la supervivencia humana, pero que, sin embargo, abunda en todas partes donde viven los seres humanos. El aire no es, por lo tanto, un bien económico.</p>
+    <p>Un bien económico, al ser escaso, tiene una demanda mayor que su oferta, y esto crea rivalidad en torno a su acceso, obligando a los seres humanos a elegir entre él y otros bienes. La escasez obliga a los seres humanos a <em>economizar</em>, a elegir entre alternativas escasas: a conservar las funciones útiles de los bienes, a priorizar las necesidades más urgentes sobre las menos urgentes, y a obtener la mayor satisfacción de la menor cantidad posible de cada uno.</p>
+    <h3 class="section-subsubtitle">Economía</h3>
+    <p>La economía, como disciplina, es el estudio de las decisiones humanas en situaciones de escasez. Se centra en analizar cómo los seres humanos intentan encontrar soluciones al problema de la disparidad entre lo que tienen y lo que quieren, y las consecuencias de sus elecciones.</p>
+    <p>Dado que la escasez es una condición permanente de la existencia, los seres humanos están constantemente eligiendo entre distintos cursos de acción, distintos bienes y distintas necesidades que satisfacer. La necesidad de elegir nos obliga a considerar y comparar la utilidad de los distintos bienes para poder tomar decisiones informadas.</p>
+    <h3 class="section-subsubtitle">Valor</h3>
+    <p>El valor es nuestra apreciación subjetiva de la satisfacción que obtenemos, o esperamos obtener, de los bienes, y lo que nos permite tomar decisiones económicas. Menger define el valor como «la importancia que los bienes individuales o cantidades de bienes adquieren para nosotros, cuando somos conscientes de que dependemos de ellos para la satisfacción de nuestras necesidades». El valor es también «la importancia que atribuimos antes que nada a la satisfacción de nuestras necesidades, es decir, a nuestra vida y bienestar, y que, en consecuencia, trasladamos a los bienes económicos como causas exclusivas de la satisfacción de nuestras necesidades».</p>
+    <h3 class="section-subsubtitle">Subjetividad del valor</h3>
+    <p>El fundamento del análisis económico, y una de las ideas innovadoras de la obra de Menger, es que el valor es subjetivo. Sólo existe en la mente de la persona que hace la valoración. En palabras de Menger: «el valor no es algo inherente a los bienes, ni una propiedad de los mismos, ni una cosa independiente que exista por sí misma. Es un juicio que hacen los hombres economizadores sobre la importancia de los bienes que disponen para la conservación de su vida y de su bienestar».</p>
+    <p>No es la naturaleza inherente de los bienes lo que los hace valiosos para nosotros, sino sólo nuestra evaluación de su idoneidad para satisfacer nuestras necesidades. A medida que cambia su capacidad de satisfacer nuestras necesidades, también cambia su valor para nosotros. El valor no es una propiedad física o química de los bienes económicos, sino una propiedad psíquica que sólo adquieren cuando los seres humanos los evalúan. Como dijo Menger: «el valor no existe fuera de la conciencia de los hombres».</p>
+    <p>El ejemplo favorito de Ammous para ilustrar esta naturaleza subjetiva es el petróleo. Hasta el siglo XIX, la presencia de petróleo en un terreno disminuía su valor, ya que requería una costosa extracción antes de que el terreno pudiera utilizarse para fines agrícolas, comerciales o residenciales. Mientras la conciencia humana consideraba el petróleo como una molestia sucia, el petróleo tenía un valor económico negativo. Una vez que los humanos se dieron cuenta de que el petróleo refinado podía quemarse en un motor de combustión interna para alimentar máquinas que satisficieran sus necesidades de transporte, electricidad y generación de calor, el petróleo pasó de ser una costosa molestia a convertirse en un bien enormemente valioso y esencial. El petróleo del año 2020 no difiere química ni físicamente del petróleo del año 1620 y, sin embargo, su valor ha pasado de negativo a positivo. En palabras de Menger: «El valor de los bienes surge de su relación con nuestras necesidades, y no es inherente a los propios bienes. Al cambiar esta relación, el valor surge y desaparece».</p>
+    <p>Un caso más reciente lo refuerza. En 2020, con buena parte del mundo bajo suspensiones de movimiento y producción, el petróleo —que se produce para su consumo inmediato y tiene muy poca capacidad de almacenamiento— no tenía adónde ir. El precio cayó en picada e incluso llegó a ser negativo durante unos días: poseer petróleo volvió a ser una carga y sus propietarios tuvieron que pagar para librarse de él. Nada cambió en las propiedades inherentes del petróleo cuando su precio pasó de positivo a negativo y otra vez a positivo; cambiaron las condiciones de quienes lo valoraban.</p>
+    <p>El valor no puede existir fuera de la valoración y la elección humanas, que reflejan sus preferencias. El valor no puede ser una propiedad constante de los objetos; es un fenómeno consciente en nuestras mentes. Esto no significa que no sea real: el valor es real y significativo, y moldea nuestras acciones para dirigir la producción, el consumo y la utilización de los objetos materiales del mundo. El reconocimiento de Menger de la naturaleza subjetiva del valor fue un punto de inflexión en el pensamiento económico. A los economistas anteriores les había costado explicar cómo se valoraban los bienes y por qué ciertos bienes eran más valiosos que otros. Todos estos misterios sólo se resolvieron con la visión mengeriana de la valoración subjetiva y el análisis marginal.</p>
+
+    <h2 class="section-subtitle">Valoración: ordinal y cardinal</h2>
+    <p>La primera consecuencia importante de la naturaleza subjetiva del valor es que no puede medirse ni expresarse objetivamente. Dado que la valoración es subjetiva para el ser humano que la realiza, y dado que cambia constantemente en función de sus necesidades y de su comprensión de la capacidad de los bienes para satisfacerlas, las valoraciones difieren de una persona a otra y de un momento a otro. Para expresar cualquier medida de forma objetiva, se necesita una unidad científica que sirva de patrón: el peso, la longitud, la temperatura se expresan en unidades definibles de manera objetiva y que permiten comparar con precisión distintos objetos. Pero no puede existir tal unidad para la valoración humana, ya que la valoración de un bien no es una propiedad objetiva inherente al bien, sino una propiedad psíquica dependiente de la persona que valora y de condiciones siempre cambiantes.</p>
+    <p>Sin una unidad común, la valoración no puede expresarse en términos numéricos cardinales objetivos, y es imposible medir el valor económico con precisión matemática. Una persona que quiere instalar una nevera en una cocina puede medir el espacio asignado en centímetros y luego buscar las dimensiones de la nevera para ver si cabe: esta medida tiene sentido porque el cliente y el fabricante comparten una definición clara y precisa de lo que es el centímetro. Sin acordar una unidad común, sería imposible saber si la nevera cabría sin instalarla.</p>
+    <p>Sin esa unidad común, la única forma de expresar la valoración es en términos <em>ordinales</em>: comparando los bienes entre sí y ordenándolos según las preferencias de quien valora, pero sin asignarles valores cuantitativos explícitos. Es posible saber si uno valora el bien A más que el bien B, y el bien B más que el bien C, porque hay una constante para la comparación: el individuo que valora. Pero es imposible expresar esas preferencias con cifras precisas en una misma unidad, como si dijera «el valor de A = 14 372 unidades, el de B = 4 258, y el de C = 1 273». Esa unidad no existe.</p>
+
+    <blockquote class="pull-quote">
+      <p>La eliminación de la insatisfacción sentida puede lograrse en una mayor o menor medida, pero cuánto supera una satisfacción a otra es algo que sólo puede sentirse. No puede establecerse ni comprobarse de manera objetiva. Un juicio de valor no mide, sino que ordena en una escala de grados, califica. Es expresivo de un orden de preferencia y secuencia; no expresa medida ni peso. Sólo se le pueden aplicar los números ordinales; nunca los cardinales.</p>
+      <cite class="no-audio">Mises</cite>
+    </blockquote>
+
+    <p>Piense en cómo valora personalmente las cosas en relación con otras. ¿Es capaz de expresar esas valoraciones en términos de una unidad que las cuantifique a todas? Todas las cosas que usted valora —desde los bienes materiales hasta las amistades, la familia y la felicidad— ¿pueden medirse en términos de una misma unidad? ¿Existe un tipo de cambio fijo entre un miembro de su familia y bienes materiales? ¿Cuántos automóviles necesita un ser humano a cambio de su hijo? Las valoraciones humanas no pueden medirse con una unidad estandarizada. Sólo pueden compararse, pero no sumarse, restarse ni multiplicarse. Sin una unidad común y constante, la medición y las operaciones matemáticas no son posibles.</p>
+
+    <h2 class="section-subtitle">Valor y precio</h2>
+    <p>El valor de los bienes económicos es distinto de su precio y no debe confundirse con éste. El precio al que se realiza una venta no es la valoración objetiva del bien, ni la valoración subjetiva de ninguna de las partes de la transacción. Sólo ilustra que el vendedor valora el bien <em>menos</em> que el precio, mientras que el comprador lo valora <em>más</em> que el precio. Si no fuera así, la transacción no se habría realizado.</p>
+    <p>Un error común en economía es confundir valor y precio, y suponer que el valor puede medirse objetivamente, expresado en unidades monetarias. Pero cuando alguien acepta vender un bien por mil dólares, está demostrando que lo valora en menos de mil dólares; si lo valorara en más, no habría aceptado. Cuando el comprador se deshace de mil dólares para adquirirlo, su valoración es necesariamente superior a mil dólares, pues de lo contrario no habría pagado esa suma. No es posible determinar la valoración exacta que un individuo le da a un bien a partir de su transacción; sólo sus límites superior o inferior. El mero acto de intercambio nos dice mucho sobre la valoración.</p>
+
+    <h2 class="section-subtitle">Libre intercambio</h2>
+    <p>Cada vez que dos personas deciden voluntariamente intercambiar bienes económicos, debe ser cierto que ambas creen que se beneficiarán del intercambio; de lo contrario, no lo harían. Un intercambio mutuamente beneficioso indica que cada parte ha recibido algo que valora más que lo que ha cedido. La única forma de que esto sea posible es entendiendo que ambas tienen valoraciones subjetivas diferentes del bien intercambiado. Si el valor de los bienes fuera objetivo, no diferiría de una persona a otra, y el intercambio no sería posible, porque ninguna elegiría aceptar el bien de menor valor objetivo a cambio del de mayor valor objetivo. Esto se tratará con más detalle en el capítulo 9, sobre el comercio.</p>
+
+    <h2 class="section-subtitle">Determinantes del valor</h2>
+    <p>La diferencia fundamental entre los economistas de la escuela austriaca y los de otras escuelas es que los austriacos consideran el valor como algo subjetivo, mientras que los de otras escuelas lo conciben como algo objetivo u objetivamente medible. Para mantener esa pretensión, algunos libros de texto modernos definen el valor como una función de la utilidad, medida en una unidad imaginaria e indefinida llamada <em>útil</em>. No existe ningún patrón sobre lo que constituye una útil, ni forma de medir nada en términos de útiles. Algunos economistas matemáticos expresan el valor en términos numéricos explícitos, medidos en unidades monetarias, confundiendo así valor con precio. Los marxistas, por su parte, piensan que el valor viene determinado por el trabajo dedicado a la producción de un bien, una idea absurda según la cual las cosas adquieren valor si se dedica trabajo a producirlas, independientemente de que alguien quiera poseerlas. Si se dedicara el mismo tiempo a hornear una tarta normal y una tarta de barro, el marxista sostendría que ambas tendrían el mismo valor.</p>
+    <p>La noción de que el trabajo determina el valor tiene un atractivo intuitivo. Vemos que los bienes económicos siempre requieren algún elemento de trabajo para satisfacer las necesidades humanas. Incluso las frutas que crecen en la naturaleza requieren el trabajo de recogerlas y comerlas antes de poder satisfacer el hambre. Esto lleva a los defensores de la teoría del valor-trabajo a concluir que es el trabajo lo que da valor a los bienes. Pero la noción es insostenible: los bienes sólo se valoran por su capacidad de satisfacer nuestras necesidades. A un comprador no le interesa saber cuánto tiempo y esfuerzo se invirtió en fabricar un producto cuando lo adquiere, sino sólo los servicios y la utilidad que el producto le proporciona. Se trabaja para producir bienes porque se espera que produzcan un resultado valioso para el consumidor; el trabajo no hace que las cosas sean valiosas por arte de magia. Es posible dedicar trabajo a un proceso de producción fallido que no produzca nada utilizable, y el producto no adquirirá valor sólo por el esfuerzo invertido. No hay correspondencia garantizada entre trabajo empleado y valor de lo producido: sólo la elección de los consumidores en el mercado puede emitir ese juicio.</p>
+    <p>Desde la perspectiva austriaca, el valor es subjetivo y depende del momento y el lugar en que se realiza la valoración. Se deriva de la elección humana, que es necesaria por la escasez. Lo asignan los individuos a cada unidad en el momento y el lugar en que toman decisiones; no es una propiedad universal del bien. Sin una concepción subjetiva del valor, no es posible encontrar explicaciones coherentes de por qué y cómo los seres humanos toman las decisiones económicas que toman.</p>
+
+    <h2 class="section-subtitle">Marginalismo</h2>
+    <p>La otra contribución trascendental de Menger a la economía es el concepto de <em>marginalismo</em>. Tras establecer que el valor de los bienes no es inherente a ellos, sino subjetivo y dependiente de su capacidad para satisfacer nuestras necesidades, Menger lo aplicó al estudio del valor de distintas unidades de un mismo bien y, en el proceso, sentó las bases del análisis económico moderno.</p>
+    <p>Dado que el valor se deriva de la satisfacción que proporciona un bien, y dado que las distintas satisfacciones tienen un valor desigual para nosotros, el valor de distintas unidades de un mismo bien también será desigual: dependerá de la satisfacción concreta que cada unidad aporta. Un mismo bien tendrá un valor diferente para una misma persona según la necesidad que satisfaga en un momento dado. Los individuos destinan la primera unidad a satisfacer las necesidades más importantes y urgentes; la segunda, a la segunda más urgente; y así sucesivamente. A medida que aumentan sus reservas, las necesidades que esas unidades satisfacen son menos valiosas y menos urgentes. Cada unidad marginal es menos valiosa que la anterior.</p>
+
+    <h2 class="section-subtitle">Utilidad marginal</h2>
+    <p>Si bien Menger nunca usó el término, su alumno Friedrich von Wieser introdujo más tarde la expresión <em>utilidad marginal</em> para referirse a la importancia concedida a la satisfacción menos importante obtenida por una sola unidad de la cantidad disponible de un bien. Mises lo definió así: «Llamamos uso menos urgente o uso marginal al uso de una unidad de una provisión homogénea que un hombre realiza si su provisión es de n unidades, pero que no realizaría si, en igualdad de condiciones, su provisión fuera sólo de n-1 unidades, y llamamos utilidad marginal a la utilidad derivada de tal uso».</p>
+    <p>Por ejemplo, la primera unidad de alimento que ingiere una persona es extremadamente valiosa: es la diferencia entre la inanición y la supervivencia. La segunda será la diferencia entre la mera supervivencia y estar bien alimentado; sigue siendo muy valiosa, pero menos que la primera. Las unidades posteriores se adquirirán para disfrutar del sabor o para reuniones sociales, menos valiosas que las anteriores. Al final llega un punto en el que el individuo no asigna ningún valor a una unidad extra y prefiere prescindir de ella aunque se la ofrezcan gratis. Cada unidad sucesiva se destina a satisfacer necesidades menos urgentes y tiene, por tanto, una utilidad menor.</p>
+    <p>Con esta idea, Menger refutó la noción de que el valor es inherente a los bienes como tales. Demostró que el valor depende de las necesidades que satisfacen, que a su vez dependen de la abundancia o escasez del bien, y sólo para la persona que valora. Nunca se pide a nadie que valore el suministro total de un bien ni que valore un bien en abstracto: las decisiones económicas se refieren a unidades individuales, y las personas deciden sobre la <em>siguiente</em> unidad que desean consumir, no sobre su provisión a lo largo de toda la vida.</p>
+
+    <h2 class="section-subtitle">Ley de la utilidad marginal decreciente</h2>
+    <p>Una consecuencia importante del enfoque de Menger es la <em>ley de la utilidad marginal decreciente</em>. Esta ley establece que la valoración y la utilidad que un individuo obtiene de un bien disminuirán a medida que aumente la cantidad del bien que posee. Como los individuos utilizan las primeras unidades para satisfacer las necesidades más urgentes, la primera unidad será la más valorada. A medida que aumentan sus reservas y cada unidad marginal se destina a una necesidad menos urgente, cada unidad marginal tendrá un valor menor.</p>
+    <p>La disminución de la utilidad marginal es una idea importante para la toma de decisiones. Cualquiera que haya hecho una compra cara puede sentirse identificado. El primer día que uno tiene un automóvil o un juguete nuevo, el factor novedad es abrumador y lo cautiva. Con el paso del tiempo, la sensación disminuye a medida que uno se acostumbra. Lo que era novedoso se convierte en común y pierde el encanto inicial. Uno todavía disfruta conduciendo el automóvil o jugando con el juguete, pero el disfrute disminuye con cada uso adicional.</p>
+    <p>La ley de la utilidad marginal decreciente es otro recordatorio de que no existe un valor objetivo del bien X: ese valor cambia según la abundancia del bien y las necesidades que satisface. Lo que existe es la valoración subjetiva de la siguiente unidad —la marginal— para la persona que valora, y depende de sus preferencias y de la abundancia del bien.</p>
+
+    <h2 class="section-subtitle">Valoración por el uso menos valioso</h2>
+    <p>Otra consecuencia del enfoque de Menger es la siguiente: a medida que los individuos destinan sus reservas a satisfacer sus necesidades más urgentes, su valoración de la unidad marginal reflejará la valoración de la satisfacción <em>menos</em> importante que este bien asegura. Un hombre que decide pagar por una comida no pagará en función de cuánto valora la comida en abstracto ni de cuánto valora toda la comida que ha consumido a lo largo de su vida. Pagará en función del valor que conceda a la próxima comida en sí. Al tratarse de una sola comida, será considerablemente inferior al valor de las comidas que lo mantienen con vida en general. Cuando las personas tienen que elegir sobre un bien concreto, lo valoran a la luz del uso menos valioso posible, porque ésa es la única opción que existe en el margen: todos los usos más valiosos ya fueron satisfechos con las unidades anteriores.</p>
+    <p>La persona que se plantea comprar una botella de agua en un restaurante, por ejemplo, no va a pagar en función del valor que obtiene del agua para sobrevivir. Simplemente está decidiendo sobre la próxima unidad marginal de agua que consume, habiendo destinado ya otras unidades a sus necesidades más urgentes. El precio pagado no se acercará en absoluto al valor que el individuo atribuye a la supervivencia, porque la decisión se refiere al consumo de una botella de agua adicional, no a la supervivencia. Esto nos ayuda a entender por qué el agua es relativamente barata a pesar de ser esencial.</p>
+    <p>En el mundo moderno, las personas no pagan por el agua en función del valor que conceden a la supervivencia. Viven ya en una época y un lugar que cubre sus necesidades más importantes a precios muy bajos. Sus decisiones de compra marginales se refieren a cantidades que pueden aliviar una sed leve, pero que no influyen en la supervivencia. Si pusiéramos a un individuo en una situación en la que no pudiera conseguir agua durante unos días, el uso menos valioso que le ofrecería sería la diferencia entre la vida y la muerte, y eso haría que la valore enormemente.</p>
+
+    <blockquote class="pull-quote">
+      <p>El hombre que actúa no se encuentra en una posición en la que deba elegir entre todo el oro y todo el hierro. Elige en un momento y lugar determinados y en unas condiciones determinadas entre una cantidad estrictamente limitada de oro y una cantidad estrictamente limitada de hierro. Su decisión de elegir entre cien onzas de oro y cien toneladas de hierro no depende en absoluto de la decisión que tomaría si se encontrara en la situación altamente improbable de elegir entre todo el oro y todo el hierro. Lo único que cuenta para su elección real es si, en las condiciones existentes, considera que la satisfacción que podrían proporcionarle cien onzas de oro es mayor o menor que la que podría obtener de cien toneladas de hierro. Cuando afronta el problema del valor que debe atribuirse a una unidad de una provisión homogénea, el hombre decide basándose en el valor del uso menos importante que hace de las unidades de toda la provisión; decide basándose en la utilidad marginal.</p>
+      <cite class="no-audio">Mises</cite>
+    </blockquote>
+
+
+    <h2 class="section-subtitle">La paradoja del diamante y el agua</h2>
+    <p>La importancia inmediata del análisis marginal de Menger radica en que fue la primera solución económica a la paradoja del diamante y el agua, cuya explicación había eludido a los economistas durante siglos. ¿Cómo podían explicar que el agua, esencial para la vida humana, fuera por lo general muy barata, si no gratuita, mientras que los diamantes, que no sirven para ningún propósito esencial, fueran muy caros? Si el valor es subjetivo, ¿por qué las personas dan tanto valor a cosas triviales que no necesitan, como los diamantes, mientras dan poco valor a bienes esenciales como el agua? ¿No encajaría esto más con una teoría del valor-trabajo?</p>
+    <p>Sin embargo, el valor de mercado no se refiere a alguna propiedad inherente al bien ni al valor que nos proporcionan todas sus reservas: se basa en la menos importante de las satisfacciones que proporciona el bien. Dado que el agua potable suele estar disponible en grandes cantidades en cualquier lugar donde se asienten seres humanos, las necesidades más urgentes de agua ya están cubiertas, y se están tomando decisiones de mercado sobre unidades que satisfacen necesidades mucho menos urgentes. Si una persona en una ciudad moderna renuncia a comprar una botella de agua, sólo está renunciando a una pequeña necesidad en un momento determinado; seguirá teniendo acceso al agua que necesita para sus necesidades más urgentes. En cambio, los diamantes, al ser muy raros y estar disponibles en cantidades muy pequeñas, son adquiridos por personas que los destinan a algunos de sus usos más valiosos.</p>
+    <p>Es posible imaginar un escenario en el que tanto el agua como los diamantes son muy escasos, y las unidades marginales de ambos se destinarían a satisfacer las necesidades más urgentes. Un hombre abandonado en un desierto que lleva días sin beber estaría dispuesto a pagar un precio mucho más alto por la primera unidad de agua que por la primera unidad de diamante, ya que para él el agua sería la diferencia entre la vida y la muerte.</p>
+    <p>Por lo tanto, es erróneo afirmar que los diamantes son más valiosos que el agua. La paradoja del diamante y el agua ilustra la importancia de las circunstancias individuales en la evaluación subjetiva del valor. En situaciones en las que el agua es abundante y los diamantes son escasos, el agua destinada a sus usos menos valiosos es menos valiosa que los diamantes, cuya escasez garantiza que sus usos menos valiosos sigan siendo muy valiosos. En situaciones en las que el agua es lo suficientemente escasa como para que la unidad marginal se destine a la supervivencia, el agua sería sin duda más valiosa que los diamantes.</p>
+
+  </div>
+
+</article>
+
+<nav class="nav-foot"><a class="prev" href="accion-humana.html">Acción humana</a><a class="idx" href="index.html">Índice</a><span></span></nav>
+
+<aside class="audio-pill" data-state="collapsed" data-duration="29:20" data-storage-key="valor" aria-label="Reproductor de audio del capítulo">
+  <audio class="ap-audio" preload="metadata" src="audio/valor.mp3"></audio>
+  <button class="ap-play" type="button" aria-label="Reproducir capítulo">
+    <svg class="ap-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="ap-icon-pause" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+  </button>
+  <div class="ap-resume-hint" aria-hidden="true"></div>
+  <div class="ap-meta">
+    <button class="ap-btn ap-skip ap-skip-back" type="button" aria-label="Retroceder 15 segundos" title="Retroceder 15 s (J)">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M11 6V3L6 7l5 4V8c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H3c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8z"/>
+        <text class="skip-label" x="11" y="17" text-anchor="middle">15</text>
+      </svg>
+    </button>
+    <button class="ap-btn ap-skip ap-skip-fwd" type="button" aria-label="Avanzar 15 segundos" title="Avanzar 15 s (L)">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M13 6V3l5 4-5 4V8c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8z"/>
+        <text class="skip-label" x="13" y="17" text-anchor="middle">15</text>
+      </svg>
+    </button>
+    <div class="ap-track" role="slider" tabindex="0" aria-label="Posición del audio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="ap-rail"></div>
+      <div class="ap-fill"></div>
+      <div class="ap-thumb"></div>
+    </div>
+    <div class="ap-time"><span class="ap-current">0:00</span><span class="ap-sep"> / </span><span class="ap-duration">--:--</span></div>
+    <button class="ap-btn ap-karaoke" type="button" aria-label="Resaltado palabra por palabra (toggle)" title="Karaoke (K)">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 18 L8 7 L12 18 M5.5 14 L10.5 14"/>
+        <path d="M19 18 V11.5 a3 3 0 0 0 -6 0 a3 3 0 0 0 3 3 a3 3 0 0 0 3 -3"/>
+        <line class="strike" x1="3" y1="20" x2="21" y2="4"/>
+      </svg>
+    </button>
+    <button class="ap-rate" type="button" aria-label="Velocidad de reproducción" title="Velocidad">1×</button>
+    <button class="ap-close" type="button" aria-label="Minimizar reproductor" title="Minimizar (Esc)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18"/></svg>
+    </button>
+  </div>
+</aside>
+
+<script>
+/* AUDIO PILL controller v2 */
+(function(){
+  var pill = document.querySelector('.audio-pill');
+  if (!pill) return;
+  var a = pill.querySelector('.ap-audio');
+  var b = pill.querySelector('.ap-play');
+  var pi = pill.querySelector('.ap-icon-play');
+  var ps = pill.querySelector('.ap-icon-pause');
+  var tr = pill.querySelector('.ap-track');
+  var fi = pill.querySelector('.ap-fill');
+  var th = pill.querySelector('.ap-thumb');
+  var cu = pill.querySelector('.ap-current');
+  var du = pill.querySelector('.ap-duration');
+  var rateBtn = pill.querySelector('.ap-rate');
+  var closeBtn = pill.querySelector('.ap-close');
+  var skipBackBtn = pill.querySelector('.ap-skip-back');
+  var skipFwdBtn  = pill.querySelector('.ap-skip-fwd');
+  var karaokeBtn  = pill.querySelector('.ap-karaoke');
+  var hint        = pill.querySelector('.ap-resume-hint');
+  var STORAGE_KEY = pill.getAttribute('data-storage-key') || 'default';
+  var POS_KEY = 'audio-pill:pos:' + STORAGE_KEY;
+  var KARAOKE_KEY = 'audio-pill:karaoke';
+  var RATES = [1, 1.25, 1.5, 0.8];
+  var rateIdx = 0, lastSaveAt = 0;
+  function fmt(t){ if(!isFinite(t)) return '0:00'; var m=Math.floor(t/60), s=Math.floor(t%60); return m+':'+(s<10?'0':'')+s; }
+  function expand(){ pill.setAttribute('data-state','expanded'); }
+  function collapse(){ pill.setAttribute('data-state','collapsed'); }
+  function setPlayIcon(playing){
+    if (playing) { pi.style.display='none'; ps.style.display=''; b.setAttribute('aria-label','Pausar'); }
+    else         { pi.style.display=''; ps.style.display='none'; b.setAttribute('aria-label','Reproducir'); }
+  }
+  function safePlay(){
+    var p = a.play();
+    if (p && typeof p.catch === 'function') p.catch(function(){});
+  }
+  function savePos(){
+    if (!a.duration || !isFinite(a.duration)) return;
+    var t = a.currentTime;
+    if (t > a.duration - 8) { try { localStorage.removeItem(POS_KEY); } catch(e){} return; }
+    if (t < 3) return;
+    try { localStorage.setItem(POS_KEY, String(Math.floor(t))); } catch(e){}
+  }
+  function loadPos(){
+    try { var v = localStorage.getItem(POS_KEY); var t = parseFloat(v); return isFinite(t) && t > 0 ? t : 0; }
+    catch(e){ return 0; }
+  }
+  function showResumeHint(s){
+    if (!hint) return;
+    hint.textContent = '↻ ' + fmt(s);
+    hint.classList.add('show');
+    setTimeout(function(){ hint.classList.remove('show'); }, 2200);
+  }
+  // Los tiempos mostrados (elapsed y total) se escalan por playbackRate:
+  // a 1.5× un cap de 29:32 aparece como 19:41 y el elapsed avanza en
+  // segundos de escucha real; así cuadran con el reloj del oyente.
+  function updateTimes(){
+    var r = a.playbackRate || 1;
+    if (isFinite(a.duration)) {
+      pill.setAttribute('data-duration', fmt(a.duration / r));
+      if (du) du.textContent = fmt(a.duration / r);
+    }
+    cu.textContent = fmt(a.currentTime / r);
+  }
+  a.addEventListener('loadedmetadata', function(){
+    updateTimes();
+    var saved = loadPos();
+    if (saved > 0 && saved < a.duration - 8) {
+      a.currentTime = saved;
+      showResumeHint(saved);
+    }
+  });
+  a.addEventListener('timeupdate', function(){
+    var pct = a.duration ? (a.currentTime/a.duration)*100 : 0;
+    fi.style.width = pct+'%'; th.style.left = pct+'%';
+    cu.textContent = fmt(a.currentTime / (a.playbackRate || 1));
+    tr.setAttribute('aria-valuenow', Math.round(pct));
+    if (!a.paused) {
+      var now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : 0;
+      if (now - lastSaveAt > 3000) { savePos(); lastSaveAt = now; }
+    }
+  });
+  a.addEventListener('ratechange', updateTimes);
+  a.addEventListener('pause', function(){ savePos(); });
+  window.addEventListener('beforeunload', savePos);
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) savePos(); });
+  a.addEventListener('play',  function(){ pill.classList.add('playing'); setPlayIcon(true); expand(); });
+  a.addEventListener('pause', function(){ pill.classList.remove('playing'); setPlayIcon(false); });
+  a.addEventListener('ended', function(){ pill.classList.remove('playing'); setPlayIcon(false); try { localStorage.removeItem(POS_KEY); } catch(e){} });
+  b.addEventListener('click', function(e){ e.stopPropagation(); if (a.paused) safePlay(); else a.pause(); });
+  closeBtn.addEventListener('click', function(e){ e.stopPropagation(); a.pause(); collapse(); });
+  rateBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    rateIdx = (rateIdx+1) % RATES.length;
+    var r = RATES[rateIdx];
+    a.playbackRate = r;
+    rateBtn.textContent = (r % 1 === 0 ? r.toFixed(0) : r) + '×';
+    rateBtn.classList.toggle('active', r !== 1);
+    rateBtn.setAttribute('aria-label', 'Velocidad: ' + rateBtn.textContent + '. Tocar para cambiar.');
+  });
+  function skip(secs){ if (!a.duration) return; a.currentTime = Math.max(0, Math.min(a.duration, a.currentTime + secs)); }
+  if (skipBackBtn) skipBackBtn.addEventListener('click', function(e){ e.stopPropagation(); skip(-15); });
+  if (skipFwdBtn)  skipFwdBtn.addEventListener('click',  function(e){ e.stopPropagation(); skip(+15); });
+  function applyKaraokePref(){
+    var off = false;
+    try { off = localStorage.getItem(KARAOKE_KEY) === 'off'; } catch(e){}
+    document.body.classList.toggle('karaoke-off', off);
+    if (karaokeBtn) {
+      karaokeBtn.classList.toggle('active', !off);
+      karaokeBtn.setAttribute('aria-pressed', String(!off));
+      karaokeBtn.setAttribute('aria-label', off ? 'Activar resaltado palabra por palabra' : 'Desactivar resaltado palabra por palabra');
+    }
+  }
+  applyKaraokePref();
+  if (karaokeBtn) karaokeBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var current = document.body.classList.contains('karaoke-off');
+    try { localStorage.setItem(KARAOKE_KEY, current ? 'on' : 'off'); } catch(e){}
+    applyKaraokePref();
+  });
+  (function(){
+    var dragging = false, wasPlaying = false;
+    function seekAt(clientX){
+      if (!a.duration) return;
+      var r = tr.getBoundingClientRect();
+      var pct = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
+      a.currentTime = pct * a.duration;
+    }
+    function onDown(e){
+      if (!a.duration) return;
+      dragging = true;
+      wasPlaying = !a.paused;
+      if (wasPlaying) a.pause();
+      tr.classList.add('dragging');
+      var x = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      seekAt(x);
+      e.preventDefault();
+    }
+    function onMove(e){
+      if (!dragging) return;
+      var x = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      seekAt(x);
+      e.preventDefault();
+    }
+    function onUp(){
+      if (!dragging) return;
+      dragging = false;
+      tr.classList.remove('dragging');
+      if (wasPlaying) { var p = a.play(); if (p && typeof p.catch === 'function') p.catch(function(){}); }
+    }
+    tr.addEventListener('mousedown', onDown);
+    tr.addEventListener('touchstart', onDown, { passive: false });
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove, { passive: false });
+    window.addEventListener('mouseup', onUp);
+    window.addEventListener('touchend', onUp);
+    window.addEventListener('touchcancel', onUp);
+  })();
+  tr.addEventListener('keydown', function(e){
+    if (!a.duration) return;
+    if      (e.key==='ArrowRight'){ a.currentTime = Math.min(a.duration, a.currentTime+5); e.preventDefault(); }
+    else if (e.key==='ArrowLeft') { a.currentTime = Math.max(0, a.currentTime-5);          e.preventDefault(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.target && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    if (e.target && e.target.isContentEditable) return;
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    var k = e.key.toLowerCase();
+    if (k === ' ' && !(/^(BUTTON|A)$/.test(e.target.tagName))) {
+      if (!pill.contains(document.activeElement)) return;
+      e.preventDefault();
+      if (a.paused) safePlay(); else a.pause();
+    } else if (k === 'j') { skip(-15); e.preventDefault(); }
+      else if (k === 'l') { skip(+15); e.preventDefault(); }
+      else if (k === 'k' && karaokeBtn) { karaokeBtn.click(); e.preventDefault(); }
+      else if (e.key === 'Escape' && pill.getAttribute('data-state') === 'expanded') { a.pause(); collapse(); }
+  });
+})();
+</script>
+<script>
+/* Karaoke v2: carga alignment y resalta palabra + puntuación. Respeta body.karaoke-off. */
+(function(){
+  var ALIGN_URL = 'audio/valor.alignment.json';
+  var audio = document.querySelector('.ap-audio');
+  if (!audio) return;
+  var words = null, wordEls = [], glueEls = [], lastIdx = -1, lastScrollAt = 0;
+  document.querySelectorAll('.w').forEach(function(el){
+    var i = parseInt(el.getAttribute('data-w'), 10);
+    if (!isNaN(i)) wordEls[i] = el;
+  });
+  try {
+    var allW = document.querySelectorAll('.w');
+    var rootEls = [];
+    allW.forEach(function(w){
+      var p = w.parentNode;
+      while (p && p !== document.body && !/^(P|H1|H2|H3|DIV|LI|BLOCKQUOTE)$/.test(p.tagName)) p = p.parentNode;
+      if (p && rootEls.indexOf(p) < 0) rootEls.push(p);
+    });
+    rootEls.forEach(function(root){
+      var walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, null);
+      var seq = [], n;
+      while ((n = walker.nextNode())) {
+        if (n.nodeType === 3) { if (n.textContent) seq.push(n); }
+        else if (n.nodeType === 1 && n.classList && n.classList.contains('w')) seq.push(n);
+      }
+      var currentIdx = -1;
+      seq.forEach(function(node){
+        if (node.nodeType === 1) {
+          var i = parseInt(node.getAttribute('data-w'), 10);
+          if (!isNaN(i)) currentIdx = i;
+        } else if (node.nodeType === 3 && currentIdx >= 0 && node.parentNode) {
+          var g = document.createElement('span');
+          g.className = 'g';
+          g.textContent = node.textContent;
+          node.parentNode.replaceChild(g, node);
+          if (!glueEls[currentIdx]) glueEls[currentIdx] = [];
+          glueEls[currentIdx].push(g);
+        }
+      });
+    });
+  } catch (err) { /* el karaoke base sigue funcionando sin glue */ }
+  fetch(ALIGN_URL)
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(data){
+      if (!data || !data.words) return;
+      words = data.words;
+      audio.addEventListener('timeupdate', tick);
+      audio.addEventListener('seeked', function(){ resetState(); tick(); });
+    })
+    .catch(function(){});
+  function findIdx(t){
+    if (!words || !words.length) return -1;
+    var lo = 0, hi = words.length - 1, ans = -1;
+    while (lo <= hi) { var mid = (lo + hi) >> 1; if (words[mid].s <= t) { ans = mid; lo = mid + 1; } else { hi = mid - 1; } }
+    return ans;
+  }
+  function setGlue(i, add){
+    var arr = glueEls[i]; if (!arr) return;
+    for (var k = 0; k < arr.length; k++) arr[k].classList[add ? 'add' : 'remove']('leida');
+  }
+  function resetState(){
+    for (var k = 0; k < wordEls.length; k++) {
+      if (wordEls[k]) wordEls[k].classList.remove('activa','leida');
+      setGlue(k, false);
+    }
+    lastIdx = -1;
+  }
+  function tick(){
+    if (!words) return;
+    var idx = findIdx(audio.currentTime);
+    if (idx === lastIdx) return;
+    if (idx < lastIdx) {
+      for (var i = idx + 1; i <= lastIdx; i++) {
+        if (wordEls[i]) wordEls[i].classList.remove('leida','activa');
+        setGlue(i, false);
+      }
+    } else {
+      for (var j = Math.max(0, lastIdx); j < idx; j++) {
+        if (wordEls[j]) { wordEls[j].classList.remove('activa'); wordEls[j].classList.add('leida'); }
+        setGlue(j, true);
+      }
+    }
+    if (idx >= 0 && wordEls[idx]) {
+      wordEls[idx].classList.remove('leida');
+      wordEls[idx].classList.add('activa');
+      var rect = wordEls[idx].getBoundingClientRect();
+      var vh = window.innerHeight;
+      if (rect.top < vh*0.22 || rect.bottom > vh*0.72) {
+        var now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : 0;
+        if (now - lastScrollAt > 600) {
+          wordEls[idx].scrollIntoView({behavior:'smooth', block:'center'});
+          lastScrollAt = now;
+        }
+      }
+    }
+    lastIdx = idx;
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    var wEl = (t && t.closest) ? t.closest('.w') : null;
+    if (!wEl) return;
+    var i = parseInt(wEl.getAttribute('data-w'), 10);
+    if (isNaN(i) || !words || !words[i]) return;
+    audio.currentTime = words[i].s;
+    if (audio.paused) { var p = audio.play(); if (p && typeof p.catch === 'function') p.catch(function(){}); }
+  });
+})();
+</script>
+<script>
+/* Subrayado con colores — instalado por tools/add_highlight_colors.py */
+(function(){
+  var STORAGE_KEY = 'highlights:' + (location.pathname.split('/').pop() || 'doc');
+  var prose = document.querySelector('.prose');
+  if (!prose) return;
+  var COLORS = ['a','n','v','c'];
+  var LAST_COLOR_KEY = 'highlights:last-color';
+  var DEFAULT_COLOR = 'a';
+  var lastColor;
+  try { lastColor = localStorage.getItem(LAST_COLOR_KEY) || DEFAULT_COLOR; } catch(e){ lastColor = DEFAULT_COLOR; }
+  if (COLORS.indexOf(lastColor) === -1) lastColor = DEFAULT_COLOR;
+
+  // saved: arreglo donde cada item es Number (=amarillo, compat) o [idx, color].
+  var saved;
+  try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e){ saved = []; }
+  if (!Array.isArray(saved)) saved = [];
+  // mapa idx → color para pintar
+  function buildMap(){
+    var m = {};
+    saved.forEach(function(it){
+      if (typeof it === 'number') m[it] = 'a';
+      else if (Array.isArray(it) && it.length >= 2) m[it[0]] = COLORS.indexOf(it[1]) !== -1 ? it[1] : 'a';
+    });
+    return m;
+  }
+  function paintAll(){
+    var m = buildMap();
+    prose.querySelectorAll('.w.hl').forEach(function(el){
+      el.classList.remove('hl'); el.removeAttribute('data-c');
+    });
+    Object.keys(m).forEach(function(idx){
+      var el = prose.querySelector('.w[data-w="'+idx+'"]');
+      if (el){ el.classList.add('hl'); el.setAttribute('data-c', m[idx]); }
+    });
+  }
+  paintAll();
+
+  function setColor(idx, color){
+    // quitar entry previa
+    for (var i = saved.length - 1; i >= 0; i--){
+      var it = saved[i];
+      var k = typeof it === 'number' ? it : (Array.isArray(it) ? it[0] : -1);
+      if (k === idx) saved.splice(i, 1);
+    }
+    // guardar (forma compacta para amarillo)
+    if (color === 'a') saved.push(idx);
+    else saved.push([idx, color]);
+  }
+  function removeIdx(idx){
+    for (var i = saved.length - 1; i >= 0; i--){
+      var it = saved[i];
+      var k = typeof it === 'number' ? it : (Array.isArray(it) ? it[0] : -1);
+      if (k === idx) saved.splice(i, 1);
+    }
+  }
+  function save(){
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch(e){}
+  }
+
+  var toolbar = document.createElement('div');
+  toolbar.className = 'hl-toolbar';
+  toolbar.setAttribute('role','toolbar');
+  toolbar.setAttribute('aria-label','Acciones de subrayado');
+  document.body.appendChild(toolbar);
+
+  var selectedIdxs = [];
+  function hideToolbar(){ toolbar.classList.remove('show'); selectedIdxs = []; }
+
+  function getSelectedWordIdxs(){
+    var sel = window.getSelection();
+    if (!sel || !sel.rangeCount || sel.toString().trim() === '') return [];
+    var range = sel.getRangeAt(0);
+    if (!prose.contains(range.commonAncestorContainer) && !range.intersectsNode(prose)) return [];
+    var idxs = [];
+    var allWords = prose.querySelectorAll('.w');
+    for (var i = 0; i < allWords.length; i++){
+      if (range.intersectsNode(allWords[i])){
+        var idx = parseInt(allWords[i].getAttribute('data-w'), 10);
+        if (!isNaN(idx)) idxs.push(idx);
+      }
+    }
+    return idxs;
+  }
+
+  function applyColor(color){
+    selectedIdxs.forEach(function(i){ setColor(i, color); });
+    try { localStorage.setItem(LAST_COLOR_KEY, color); } catch(e){}
+    lastColor = color;
+    save(); paintAll(); hideToolbar();
+    var sel = window.getSelection(); if (sel) sel.removeAllRanges();
+  }
+  function removeAll(){
+    selectedIdxs.forEach(function(i){ removeIdx(i); });
+    save(); paintAll(); hideToolbar();
+    var sel = window.getSelection(); if (sel) sel.removeAllRanges();
+  }
+
+  var COLOR_LABEL = { a: 'Amarillo · importante', n: 'Naranja · cita o dato', v: 'Verde · me convence', c: 'Coral · dudo' };
+
+  function showToolbar(x, y, currentColor){
+    toolbar.innerHTML = '';
+    COLORS.forEach(function(c){
+      var sw = document.createElement('button');
+      sw.type = 'button'; sw.className = 'hl-swatch';
+      sw.setAttribute('data-c', c);
+      sw.setAttribute('aria-label', COLOR_LABEL[c]);
+      sw.title = COLOR_LABEL[c];
+      if (currentColor === c) sw.classList.add('current');
+      sw.addEventListener('mousedown', function(e){ e.preventDefault(); });
+      sw.addEventListener('click', function(e){ e.stopPropagation(); applyColor(c); });
+      toolbar.appendChild(sw);
+    });
+    if (currentColor){
+      var div = document.createElement('span'); div.className = 'hl-divider';
+      toolbar.appendChild(div);
+      var rm = document.createElement('button');
+      rm.type = 'button'; rm.className = 'hl-btn hl-btn-rm';
+      rm.textContent = 'Quitar';
+      rm.addEventListener('mousedown', function(e){ e.preventDefault(); });
+      rm.addEventListener('click', function(e){ e.stopPropagation(); removeAll(); });
+      toolbar.appendChild(rm);
+    }
+    toolbar.classList.add('show');
+    // En móvil, el CSS la fija al fondo con !important; el JS no posiciona.
+    if (window.matchMedia && window.matchMedia('(max-width: 640px)').matches) {
+      toolbar.style.left = ''; toolbar.style.top = '';
+      return;
+    }
+    var w = toolbar.offsetWidth, h = toolbar.offsetHeight;
+    var vw = window.innerWidth;
+    var left = Math.max(8, Math.min(vw - w - 8, x - w/2));
+    var top = Math.max(window.scrollY + 8, y - h - 8);
+    toolbar.style.left = left + 'px';
+    toolbar.style.top = top + 'px';
+  }
+
+  function onSelection(e){
+    if (e && e.target && toolbar.contains(e.target)) return;
+    if (e && e.target && e.target.closest && e.target.closest('.audio-pill')) return;
+    setTimeout(function(){
+      var idxs = getSelectedWordIdxs();
+      if (idxs.length === 0){ hideToolbar(); return; }
+      var sel = window.getSelection();
+      var range = sel.getRangeAt(0);
+      var rect = range.getBoundingClientRect();
+      if (rect.width === 0 && rect.height === 0){ hideToolbar(); return; }
+      var x = rect.left + window.scrollX + rect.width/2;
+      var y = rect.top + window.scrollY;
+      var m = buildMap();
+      // color "actual" de la selección: si todas las palabras subrayadas comparten color, ese; si no, ninguno
+      var present = idxs.map(function(i){ return m[i]; }).filter(Boolean);
+      var allSame = present.length === idxs.length && present.every(function(c){ return c === present[0]; });
+      var currentColor = allSame && present.length ? present[0] : null;
+      selectedIdxs = idxs;
+      showToolbar(x, y, currentColor);
+    }, 10);
+  }
+
+  document.addEventListener('mouseup', onSelection);
+  document.addEventListener('touchend', onSelection);
+  document.addEventListener('mousedown', function(e){
+    if (toolbar.contains(e.target)) return;
+    hideToolbar();
+  });
+  window.addEventListener('scroll', hideToolbar, { passive: true });
+  window.addEventListener('resize', hideToolbar);
+})();
+</script>
+
+<script>
+/* usabilidad-v1 */
+(function(){
+  var doc=document.documentElement;
+  function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+  function lsSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+
+  var gear=document.querySelector('.ui-gear'), panel=document.querySelector('.ui-panel');
+  if(gear&&panel){
+    gear.addEventListener('click',function(e){e.stopPropagation();var o=panel.classList.toggle('open');gear.setAttribute('aria-expanded',String(o));});
+    document.addEventListener('click',function(e){if(!panel.contains(e.target)&&!gear.contains(e.target)){panel.classList.remove('open');gear.setAttribute('aria-expanded','false');}});
+  }
+  function markActive(group,attr,val){
+    document.querySelectorAll('.ui-row[data-group="'+group+'"] button').forEach(function(btn){
+      btn.classList.toggle('active', btn.getAttribute(attr)===val);
+    });
+  }
+  var curTheme=lsGet('ui:theme')||'sepia';
+  markActive('theme','data-theme-val',curTheme);
+  document.querySelectorAll('[data-theme-val]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var v=btn.getAttribute('data-theme-val');
+      if(v==='oscuro')doc.removeAttribute('data-theme');else doc.setAttribute('data-theme',v);
+      lsSet('ui:theme',v); markActive('theme','data-theme-val',v);
+    });
+  });
+  var curFs=lsGet('ui:fontscale')||'1';
+  doc.style.setProperty('--font-scale',curFs);
+  markActive('fs','data-fs',curFs);
+  document.querySelectorAll('[data-fs]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var v=btn.getAttribute('data-fs');
+      doc.style.setProperty('--font-scale',v); lsSet('ui:fontscale',v); markActive('fs','data-fs',v);
+    });
+  });
+
+  var bar=document.querySelector('.read-progress > i'), ticking=false;
+  function updBar(){
+    var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+    var y=h.scrollTop||window.pageYOffset||0;
+    var pct=max>0?(y/max*100):0;
+    if(bar)bar.style.width=Math.min(100,Math.max(0,pct))+'%';
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(updBar);}},{passive:true});
+  window.addEventListener('resize',updBar); updBar();
+
+  var sub=document.querySelector('.chapter-subtitle');
+  if(sub&&!document.querySelector('.chapter-meta')){
+    var words=document.querySelectorAll('.prose .w, .chapter-title .w').length||0;
+    var mins=Math.max(1,Math.round(words/200));
+    var pe=document.querySelector('.audio-pill');
+    var dur=pe?pe.getAttribute('data-duration'):'';
+    var meta=document.createElement('p'); meta.className='chapter-meta';
+    meta.textContent='Lectura ≈ '+mins+' min'+(dur&&dur!=='0:00'?'  ·  audio '+dur:'');
+    sub.parentNode.insertBefore(meta, sub.nextSibling);
+  }
+
+  var pillEl=document.querySelector('.audio-pill');
+  var sk=pillEl?(pillEl.getAttribute('data-storage-key')||'default'):'default';
+  var SKEY='ui:scroll:'+sk, sticking=false;
+  function saveScroll(){var y=window.pageYOffset||document.documentElement.scrollTop||0;lsSet(SKEY,String(Math.round(y)));}
+  window.addEventListener('scroll',function(){if(!sticking){sticking=true;setTimeout(function(){saveScroll();sticking=false;},800);}},{passive:true});
+  window.addEventListener('beforeunload',saveScroll);
+  var savedY=parseInt(lsGet(SKEY)||'0',10);
+  if(savedY>600 && savedY<(document.documentElement.scrollHeight-window.innerHeight-200)){
+    var rr=document.createElement('button'); rr.className='resume-read';
+    rr.innerHTML='↓ Continuar donde ibas';
+    rr.addEventListener('click',function(){window.scrollTo({top:savedY,behavior:'smooth'});rr.classList.remove('show');});
+    document.body.appendChild(rr);
+    setTimeout(function(){rr.classList.add('show');},500);
+    setTimeout(function(){rr.classList.remove('show');},9000);
+  }
+
+  var audio=document.querySelector('.ap-audio');
+  var nextLink=document.querySelector('.nav-foot a.next');
+  if(audio&&nextLink){
+    var card=document.createElement('div'); card.className='next-card';
+    card.innerHTML='<div class="nc-label">Siguiente capítulo</div>'+
+      '<div class="nc-title"></div>'+
+      '<div class="nc-actions"><button class="nc-dismiss">Ahora no</button>'+
+      '<a class="nc-go">Reproducir →</a></div>';
+    card.querySelector('.nc-title').textContent=nextLink.textContent;
+    card.querySelector('.nc-go').setAttribute('href', nextLink.getAttribute('href')+'?autoplay=1');
+    document.body.appendChild(card);
+    audio.addEventListener('ended',function(){card.classList.add('show');});
+    card.querySelector('.nc-dismiss').addEventListener('click',function(){card.classList.remove('show');});
+  }
+  if(audio && /[?&]autoplay=1/.test(location.search)){
+    var go=function(){var p=audio.play();if(p&&p.catch)p.catch(function(){});};
+    if(audio.readyState>=2)go(); else audio.addEventListener('loadedmetadata',go,{once:true});
+  }
+})();
+</script>
+</body>
+</html>
