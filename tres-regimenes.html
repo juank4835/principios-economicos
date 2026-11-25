@@ -552,9 +552,19 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
     hint.classList.add('show');
     setTimeout(function(){ hint.classList.remove('show'); }, 2200);
   }
+  // Los tiempos mostrados (elapsed y total) se escalan por playbackRate:
+  // a 1.5× un cap de 29:32 aparece como 19:41 y el elapsed avanza en
+  // segundos de escucha real; así cuadran con el reloj del oyente.
+  function updateTimes(){
+    var r = a.playbackRate || 1;
+    if (isFinite(a.duration)) {
+      pill.setAttribute('data-duration', fmt(a.duration / r));
+      if (du) du.textContent = fmt(a.duration / r);
+    }
+    cu.textContent = fmt(a.currentTime / r);
+  }
   a.addEventListener('loadedmetadata', function(){
-    if (isFinite(a.duration)) pill.setAttribute('data-duration', fmt(a.duration));
-    if (du && isFinite(a.duration)) du.textContent = fmt(a.duration);
+    updateTimes();
     var saved = loadPos();
     if (saved > 0 && saved < a.duration - 8) {
       a.currentTime = saved;
@@ -564,13 +574,14 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
   a.addEventListener('timeupdate', function(){
     var pct = a.duration ? (a.currentTime/a.duration)*100 : 0;
     fi.style.width = pct+'%'; th.style.left = pct+'%';
-    cu.textContent = fmt(a.currentTime);
+    cu.textContent = fmt(a.currentTime / (a.playbackRate || 1));
     tr.setAttribute('aria-valuenow', Math.round(pct));
     if (!a.paused) {
       var now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : 0;
       if (now - lastSaveAt > 3000) { savePos(); lastSaveAt = now; }
     }
   });
+  a.addEventListener('ratechange', updateTimes);
   a.addEventListener('pause', function(){ savePos(); });
   window.addEventListener('beforeunload', savePos);
   document.addEventListener('visibilitychange', function(){ if (document.hidden) savePos(); });
