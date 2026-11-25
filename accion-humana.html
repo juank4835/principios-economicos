@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- usabilidad-v1 -->
+<script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('ui:theme')||'sepia';if(t!=='oscuro')d.setAttribute('data-theme',t);var f=localStorage.getItem('ui:fontscale');if(f)d.style.setProperty('--font-scale',f);var a=localStorage.getItem('ui:ajas');if(a==='on')d.setAttribute('data-ajas','on');}catch(e){}})();</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acción humana — Principios Económicos</title>
+<style>
+:root {
+  --bg: #1c1c1c;
+  --surface: #262626;
+  --ink: #ebe9e4;
+  --ink-soft: #9a988f;
+  --rule: #3a3a38;
+  --verde: #FF7A18;
+  --rojo: #8A8A86;
+  --font-body: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: calc(19px * var(--font-scale, 1)); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.75; font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1; position: relative; overflow-x: hidden; }
+/* Glow difuminado naranja detrás de la cabecera (se desvanece al bajar) */
+body::before { content: ""; position: absolute; top: -120px; left: 50%; transform: translateX(-50%); width: 900px; max-width: 130vw; height: 720px; background: radial-gradient(ellipse 50% 50% at center, rgba(255,122,24,0.20) 0%, rgba(255,122,24,0.06) 38%, transparent 70%); pointer-events: none; z-index: 0; }
+.nav-top, .page, .audio-pill { position: relative; z-index: 1; }
+.page { max-width: 720px; margin: 0 auto; padding: 5rem 1.5rem 8rem; }
+.chapter-eyebrow { font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--verde); text-align: center; margin-bottom: 1.2rem; }
+.chapter-title { font-size: 2.6rem; font-weight: 400; text-align: center; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.6rem; }
+.chapter-subtitle { text-align: center; font-size: 1.1rem; font-style: italic; color: var(--ink-soft); margin-bottom: 4rem; }
+.ornament { text-align: center; color: var(--verde); font-size: 1.2rem; margin: 0 auto 3.5rem; letter-spacing: 0.5em; }
+.prose p { font-size: 1.12rem; line-height: 1.8; margin-bottom: 1.5rem; }
+.prose p.lead { font-size: 1.28rem; line-height: 1.7; color: var(--ink); margin-bottom: 1.8rem; }
+.prose .lead::first-letter { font-size: 3.6rem; font-weight: 600; float: left; line-height: 0.82; margin: 0.08em 0.12em -0.1em 0; color: var(--verde); }
+.prose em { font-style: italic; }
+.prose strong { font-weight: 600; color: var(--ink); }
+.term-verde { color: var(--verde); font-style: italic; }
+.term-rojo { color: var(--rojo); font-style: italic; }
+.section-num { display: block; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--verde); margin-bottom: 0.6rem; margin-top: 3.5rem; }
+blockquote { margin: 2.2rem 0; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 2px solid var(--verde); font-style: italic; color: var(--ink-soft); font-size: 1.06rem; line-height: 1.65; }
+blockquote .cite { display: block; margin-top: 0.6rem; font-style: italic; font-size: 0.86rem; color: var(--ink-soft); opacity: 0.8; }
+blockquote .cite::before { content: "— "; }
+.cita-autor { background: var(--surface); margin: 2.4rem 0; padding: 1.8rem 2rem; border-radius: 4px; font-size: 1.06rem; line-height: 1.65; }
+.cita-autor .texto { display: block; font-style: italic; }
+.cita-autor .atribucion { display: block; margin-top: 1rem; text-align: right; font-size: 0.86rem; color: var(--ink-soft); letter-spacing: 0.02em; }
+.cita-autor .atribucion em { font-style: italic; }
+.profundizacion { margin: 2.8rem 0; padding: 1.6rem 1.8rem; background: var(--surface); border-radius: 6px; border: 1px solid var(--rule); }
+.profundizacion .tag { display: block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.8rem; }
+.profundizacion p { font-size: 1rem; line-height: 1.7; color: var(--ink-soft); margin-bottom: 0.8rem; }
+.profundizacion p:last-child { margin-bottom: 0; }
+.pendiente { margin: 2.5rem 0; padding: 1.4rem 1.6rem; border: 1px dashed var(--rule); border-radius: 6px; font-style: italic; color: var(--ink-soft); font-size: 0.98rem; text-align: center; }
+.nav-top { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 0; }
+.nav-top a { font-size: 0.85rem; color: var(--ink-soft); text-decoration: none; letter-spacing: 0.04em; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.nav-top a:hover { border-bottom-color: var(--verde); }
+.nav-foot { max-width: 720px; margin: 4rem auto 0; padding: 2rem 1.5rem 0; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.nav-foot a { font-size: 0.9rem; color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.nav-foot a:hover { border-bottom-color: var(--verde); }
+.nav-foot .prev::before { content: "← "; color: var(--ink-soft); }
+.nav-foot .next::after { content: " →"; color: var(--ink-soft); }
+.nav-foot .idx { color: var(--ink-soft); }
+
+/* highlights MVP — instalado por tools/add_highlights.py */
+.w.hl { background-color: transparent; box-shadow: inset 0 -1.5px 0 rgba(255,238,0,0.95); padding: 0 0.5em; margin: 0 -0.5em; border-radius: 0; }
+.w.hl:hover { box-shadow: inset 0 -2.5px 0 rgba(255,238,0,1); }
+.w.activa.hl { box-shadow: inset 0 -1.5px 0 rgba(255,122,24,0.95); }
+.w.leida.hl { opacity: 1; }
+body.karaoke-off .w.hl { box-shadow: inset 0 -1.5px 0 rgba(255,238,0,0.95) !important; background-color: transparent !important; color: inherit; }
+.hl-toolbar { position: absolute; display: none; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 3px; box-shadow: 0 4px 16px -4px rgba(0,0,0,0.6); z-index: 200; font-family: var(--font-body); white-space: nowrap; -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); }
+.hl-toolbar.show { display: block; }
+.hl-btn { background: transparent; border: none; color: var(--ink); padding: 0.42rem 0.85rem; cursor: pointer; border-radius: 4px; font-family: inherit; font-size: 0.84rem; letter-spacing: 0.02em; }
+.hl-btn:hover { background: var(--rule); }
+.hl-btn-rm { color: var(--ink-soft); }
+@media (max-width: 640px) { html { font-size: calc(17px * var(--font-scale, 1)); } .page { padding: 3rem 1.2rem 5rem; } .chapter-title { font-size: 2rem; } }
+.w { cursor: pointer; transition: color 0.25s ease, background-color 0.15s ease; border-radius: 2px; }
+.w:hover { color: var(--verde); }
+.w.leida { color: var(--ink-soft); opacity: 0.85; }
+.w.activa { background-color: rgba(255,122,24,0.18); color: var(--verde); padding: 0 0.12em; }
+.g { transition: color 0.25s ease, opacity 0.25s ease; }
+.g.leida { color: var(--ink-soft); opacity: 0.85; }
+body.karaoke-off .w { cursor: text; }
+body.karaoke-off .w:hover { color: inherit; }
+body.karaoke-off .w.leida, body.karaoke-off .w.activa,
+body.karaoke-off .g.leida { color: inherit; background-color: transparent; opacity: 1; padding: 0; }
+
+/* AUDIO PILL v2 — flotante, colapsa/expande, con skip + toggle karaoke + memoria */
+.audio-pill { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 100; display: flex; align-items: center; background: rgba(38,38,38,0.92); border: 1px solid var(--rule); border-radius: 28px; box-shadow: 0 12px 36px -14px rgba(0,0,0,0.75), 0 2px 8px -2px rgba(0,0,0,0.25); font-family: var(--font-body); height: 48px; padding: 4px; overflow: hidden; -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); transition: width 0.32s cubic-bezier(0.4,0,0.2,1), background 0.2s, box-shadow 0.2s; width: 56px; }
+.audio-pill[data-state="expanded"] { width: min(460px, calc(100vw - 2.5rem)); }
+.audio-pill:hover { box-shadow: 0 16px 40px -12px rgba(0,0,0,0.85), 0 4px 10px -2px rgba(0,0,0,0.3); }
+.ap-play { flex: 0 0 40px; height: 40px; border-radius: 50%; border: none; background: var(--verde); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, transform 0.1s; }
+.ap-play:hover { background: #d96a14; transform: scale(1.04); }
+.ap-play:active { transform: scale(0.96); }
+.ap-play:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+.ap-play svg { width: 16px; height: 16px; fill: currentColor; pointer-events: none; }
+.ap-icon-play { margin-left: 2px; }
+.ap-meta { display: flex; align-items: center; gap: 0.35rem; margin-left: 0.4rem; margin-right: 0.2rem; flex: 1; min-width: 0; opacity: 0; transform: translateX(-4px); transition: opacity 0.18s 0.08s, transform 0.28s cubic-bezier(0.4,0,0.2,1); }
+.audio-pill[data-state="expanded"] .ap-meta { opacity: 1; transform: translateX(0); }
+.audio-pill[data-state="collapsed"] .ap-meta { pointer-events: none; }
+.ap-btn { flex: 0 0 28px; height: 28px; border-radius: 50%; background: transparent; border: none; color: var(--ink-soft); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, color 0.2s; }
+.ap-btn:hover { background: var(--rule); color: var(--ink); }
+.ap-btn:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-btn svg { width: 14px; height: 14px; pointer-events: none; }
+.ap-btn.active { color: var(--verde); }
+.ap-skip svg { fill: currentColor; stroke: none; }
+.ap-skip .skip-label { font: 600 7px/1 ui-monospace, monospace; fill: currentColor; }
+.ap-karaoke svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.ap-karaoke .strike { display: none; }
+body.karaoke-off .ap-karaoke .strike { display: block; }
+.ap-track { flex: 1; min-width: 40px; height: 24px; position: relative; cursor: pointer; }
+.ap-rail { position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--rule); transform: translateY(-50%); border-radius: 1px; }
+.ap-fill { position: absolute; top: 50%; left: 0; height: 2px; width: 0; background: var(--verde); transform: translateY(-50%); border-radius: 1px; transition: width 0.1s linear; }
+.ap-thumb { position: absolute; top: 50%; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--verde); transform: translate(-50%,-50%); opacity: 0; transition: opacity 0.2s; }
+.audio-pill:hover .ap-thumb, .ap-track:focus-visible .ap-thumb, .ap-track.dragging .ap-thumb { opacity: 1; transform: translate(-50%,-50%) scale(1.3); }
+.ap-time { font-size: 0.78rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; letter-spacing: 0.01em; white-space: nowrap; min-width: 78px; text-align: right; } .ap-duration { color: var(--ink-soft); opacity: 0.75; } .ap-sep { color: var(--ink-soft); opacity: 0.6; padding: 0 0.05em; }
+.audio-pill.playing .ap-time { color: var(--verde); }
+.ap-rate { flex: 0 0 auto; background: transparent; border: 1px solid var(--rule); color: var(--ink-soft); border-radius: 12px; height: 24px; padding: 0 8px; font-size: 0.7rem; font-family: inherit; cursor: pointer; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; white-space: nowrap; transition: color 0.2s, border-color 0.2s, background 0.2s; }
+.ap-rate:hover { color: var(--ink); border-color: var(--ink-soft); }
+.ap-rate:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-rate.active { color: var(--verde); border-color: var(--verde); }
+.ap-close { flex: 0 0 26px; height: 26px; border-radius: 50%; background: transparent; border: none; color: var(--ink-soft); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, color 0.2s; }
+.ap-close:hover { background: var(--rule); color: var(--ink); }
+.ap-close:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-close svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; pointer-events: none; }
+.audio-pill[data-state="collapsed"]::after { content: attr(data-duration); position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%); background: var(--surface); border: 1px solid var(--rule); color: var(--ink-soft); padding: 0.25rem 0.6rem; border-radius: 12px; font-size: 0.72rem; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.audio-pill[data-state="collapsed"]:hover::after, .audio-pill[data-state="collapsed"]:focus-within::after { opacity: 1; }
+.ap-resume-hint { position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%); background: var(--surface); border: 1px solid var(--verde); color: var(--verde); padding: 0.3rem 0.7rem; border-radius: 12px; font-size: 0.72rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.ap-resume-hint.show { opacity: 1; }
+@media (max-width: 640px) {
+  .audio-pill { right: 0.85rem; bottom: 0.85rem; }
+  .audio-pill[data-state="expanded"] { left: 0.85rem; right: 0.85rem; width: auto; }
+  .audio-pill[data-state="collapsed"]::after { display: none; }
+  .ap-karaoke { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .audio-pill, .ap-fill, .ap-play, .ap-meta { transition: none; }
+}
+
+/* ===== usabilidad-v1 ===== */
+:root[data-theme="sepia"]{ --bg:#f3ead6; --surface:#e9dcc0; --ink:#2f2718; --ink-soft:#6e6048; --rule:#d6c9ab; }
+:root[data-theme="claro"]{ --bg:#fbf9f5; --surface:#eeeae3; --ink:#1a1916; --ink-soft:#5d584f; --rule:#e2ddd3; }
+:root[data-theme="sepia"] body::before,
+:root[data-theme="claro"] body::before{ opacity:.5; }
+
+.read-progress{ position:fixed; top:0; left:0; height:3px; width:100%; background:transparent; z-index:300; pointer-events:none; }
+.read-progress > i{ display:block; height:100%; width:0; background:var(--verde); transition:width .08s linear; }
+
+.ui-settings{ position:fixed; top:14px; right:14px; z-index:260; font-family:var(--font-body); }
+.ui-gear{ width:42px; height:42px; border-radius:50%; border:1px solid var(--rule); background:var(--surface); color:var(--ink-soft); cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px -6px rgba(0,0,0,.5); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); }
+.ui-gear:hover{ color:var(--ink); }
+.ui-gear svg{ width:20px; height:20px; }
+.ui-panel{ position:absolute; top:50px; right:0; width:214px; background:var(--surface); border:1px solid var(--rule); border-radius:12px; padding:14px; box-shadow:0 12px 32px -8px rgba(0,0,0,.55); display:none; }
+.ui-panel.open{ display:block; }
+.ui-panel h4{ font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 .55rem; font-weight:400; }
+.ui-row{ display:flex; gap:6px; margin-bottom:13px; }
+.ui-row:last-child{ margin-bottom:0; }
+.ui-row button{ flex:1; padding:.5rem .2rem; border:1px solid var(--rule); background:transparent; color:var(--ink-soft); border-radius:8px; cursor:pointer; font-family:var(--font-body); font-size:.9rem; line-height:1; }
+.ui-row button.active{ background:var(--ink); color:var(--bg); border-color:var(--ink); }
+
+.chapter-meta{ font-family:var(--font-body); font-size:.82rem; color:var(--ink-soft); letter-spacing:.02em; margin-top:.6rem; }
+
+.resume-read{ position:fixed; left:16px; bottom:18px; z-index:240; background:var(--surface); color:var(--ink); border:1px solid var(--rule); border-radius:22px; padding:.55rem .95rem; font-family:var(--font-body); font-size:.86rem; cursor:pointer; box-shadow:0 6px 20px -6px rgba(0,0,0,.5); display:none; }
+.resume-read.show{ display:inline-flex; align-items:center; gap:.4rem; }
+
+.next-card{ position:fixed; left:50%; bottom:92px; transform:translateX(-50%) translateY(10px); z-index:250; background:var(--surface); border:1px solid var(--rule); border-radius:14px; padding:1rem 1.2rem; box-shadow:0 16px 40px -10px rgba(0,0,0,.6); font-family:var(--font-body); text-align:center; max-width:88vw; opacity:0; pointer-events:none; transition:opacity .3s, transform .3s; }
+.next-card.show{ opacity:1; transform:translateX(-50%) translateY(0); pointer-events:auto; }
+.next-card .nc-label{ font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); }
+.next-card .nc-title{ font-size:1.05rem; color:var(--ink); margin:.3rem 0 .85rem; }
+.next-card .nc-actions{ display:flex; gap:.5rem; justify-content:center; }
+.next-card button, .next-card a{ border:1px solid var(--rule); background:transparent; color:var(--ink); border-radius:20px; padding:.45rem 1rem; font-family:var(--font-body); font-size:.9rem; cursor:pointer; text-decoration:none; }
+.next-card .nc-go{ background:var(--verde); border-color:var(--verde); color:#fff; }
+
+.skip-link{ position:absolute; left:-999px; top:0; z-index:400; background:var(--verde); color:#fff; padding:.6rem 1rem; border-radius:0 0 8px 0; font-family:var(--font-body); }
+.skip-link:focus{ left:0; }
+
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus-visible{ outline:2px solid var(--verde); outline-offset:2px; border-radius:3px; }
+.audio-pill .ap-play{ min-width:44px; min-height:44px; }
+@media (max-width:640px){ .ui-settings{ top:10px; right:10px; } .resume-read{ bottom:14px; } }
+
+/* hl-colors-v2 */
+:root{
+  --hl-color-a: rgba(255,238,0,0.95);   /* amarillo · importante */
+  --hl-color-n: rgba(255,150,40,0.95);  /* naranja  · cita/dato */
+  --hl-color-v: rgba(120,210,120,0.95); /* verde    · me convence */
+  --hl-color-c: rgba(255,128,128,0.95); /* coral    · dudo/revisar */
+}
+:root[data-theme="sepia"]{
+  --hl-color-a: rgba(212,160,0,0.9);
+  --hl-color-n: rgba(208,110,30,0.9);
+  --hl-color-v: rgba(80,150,80,0.9);
+  --hl-color-c: rgba(200,80,80,0.9);
+}
+:root[data-theme="claro"]{
+  --hl-color-a: rgba(218,160,0,0.95);
+  --hl-color-n: rgba(214,108,28,0.95);
+  --hl-color-v: rgba(64,140,64,0.95);
+  --hl-color-c: rgba(204,72,72,0.95);
+}
+.hl[data-c="a"]{ box-shadow: inset 0 -1.5px 0 var(--hl-color-a) !important; }
+.hl[data-c="n"]{ box-shadow: inset 0 -1.5px 0 var(--hl-color-n) !important; }
+.hl[data-c="v"]{ box-shadow: inset 0 -1.5px 0 var(--hl-color-v) !important; }
+.hl[data-c="c"]{ box-shadow: inset 0 -1.5px 0 var(--hl-color-c) !important; }
+.hl[data-c="a"]:hover{ box-shadow: inset 0 -2.5px 0 var(--hl-color-a) !important; }
+.hl[data-c="n"]:hover{ box-shadow: inset 0 -2.5px 0 var(--hl-color-n) !important; }
+.hl[data-c="v"]:hover{ box-shadow: inset 0 -2.5px 0 var(--hl-color-v) !important; }
+.hl[data-c="c"]:hover{ box-shadow: inset 0 -2.5px 0 var(--hl-color-c) !important; }
+
+.hl-swatch{
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 1.5px solid transparent;
+  background: transparent; cursor: pointer; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  margin: 0 2px;
+  position: relative;
+}
+.hl-swatch::after{
+  content: ""; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--sw-color);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
+}
+.hl-swatch[data-c="a"]{ --sw-color: var(--hl-color-a); }
+.hl-swatch[data-c="n"]{ --sw-color: var(--hl-color-n); }
+.hl-swatch[data-c="v"]{ --sw-color: var(--hl-color-v); }
+.hl-swatch[data-c="c"]{ --sw-color: var(--hl-color-c); }
+.hl-swatch:hover{ border-color: var(--rule); }
+.hl-swatch.current{ border-color: var(--ink); }
+.hl-toolbar .hl-divider{ display:inline-block; width:1px; height:18px; background: var(--rule); margin: 0 4px; vertical-align: middle; }
+
+/* En móvil la barra se ancla al fondo (lejos del menú nativo del SO),
+   más grande para tocar bien con el dedo. En desktop sigue contextual. */
+@media (max-width: 640px) {
+  .hl-toolbar {
+    position: fixed !important;
+    left: 16px !important; right: 16px !important;
+    top: auto !important; bottom: 84px !important;
+    max-width: none;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    padding: 12px 14px;
+    box-shadow: 0 20px 44px -10px rgba(0,0,0,0.75);
+    text-align: center;
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+  .hl-swatch{ width: 38px; height: 38px; margin: 0 4px; }
+  .hl-swatch::after{ width: 22px; height: 22px; }
+  .hl-toolbar .hl-btn{ padding: 0.62rem 1rem; font-size: 0.92rem; }
+  .hl-toolbar .hl-divider{ height: 22px; margin: 0 6px; }
+}
+
+/* pill-polish-v1 */
+:root[data-theme="sepia"] .audio-pill,
+:root[data-theme="claro"] .audio-pill {
+  background: var(--surface);
+  border-color: var(--rule);
+  box-shadow:
+    0 14px 32px -14px rgba(80, 60, 30, 0.32),
+    0 4px 10px -2px rgba(80, 60, 30, 0.12),
+    0 0 0 3px rgba(255, 122, 24, 0.06);
+}
+:root[data-theme="sepia"] .audio-pill:hover,
+:root[data-theme="claro"] .audio-pill:hover {
+  box-shadow:
+    0 18px 40px -12px rgba(80, 60, 30, 0.42),
+    0 6px 14px -2px rgba(80, 60, 30, 0.18),
+    0 0 0 4px rgba(255, 122, 24, 0.10);
+}
+:root[data-theme="sepia"] .audio-pill .ap-play,
+:root[data-theme="claro"] .audio-pill .ap-play {
+  box-shadow:
+    0 4px 12px -2px rgba(255, 122, 24, 0.55),
+    0 2px 4px -1px rgba(0, 0, 0, 0.15);
+}
+:root[data-theme="sepia"] .audio-pill .ap-play:hover,
+:root[data-theme="claro"] .audio-pill .ap-play:hover {
+  box-shadow:
+    0 6px 16px -2px rgba(255, 122, 24, 0.7),
+    0 3px 6px -1px rgba(0, 0, 0, 0.2);
+}
+/* En claro/sepia, el texto del rate y los iconos secundarios necesitan tomar
+   los colores del tema (algunos estaban hardcoded a tono oscuro). */
+:root[data-theme="sepia"] .audio-pill .ap-rate,
+:root[data-theme="claro"] .audio-pill .ap-rate { color: var(--ink-soft); border-color: var(--rule); }
+:root[data-theme="sepia"] .audio-pill .ap-rate:hover,
+:root[data-theme="claro"] .audio-pill .ap-rate:hover { color: var(--ink); border-color: var(--ink-soft); }
+
+/* Pequeño realce permanente del play en oscuro también, para que el botón
+   principal sienta más «vivo» en cualquier tema (cambio sutil). */
+.audio-pill .ap-play {
+  box-shadow: 0 3px 10px -2px rgba(255, 122, 24, 0.35);
+}
+.audio-pill .ap-play:hover {
+  box-shadow: 0 5px 14px -2px rgba(255, 122, 24, 0.5);
+}
+
+/* ===== Citas en bloque — alineadas a la izquierda, filete fino gris ===== */
+.prose .pull-quote {
+  margin: 2.4rem 0; padding: 0.3rem 0 0.3rem 1.5rem;
+  border-left: 2px solid var(--rule);
+}
+.prose .pull-quote p {
+  font-size: 1.06rem; font-style: italic; line-height: 1.7; color: var(--ink); margin: 0 0 0.7rem;
+}
+.prose .pull-quote cite {
+  display: block; font-style: italic; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft);
+}
+
+/* ===== Ajás (feature de edición — invisible por defecto) =====
+   Un párrafo marcado como <p class="aja"> es donde vive el "clic" conceptual
+   del capítulo. Cuando el interruptor del índice está apagado (sin atributo
+   data-ajas en el html), no hay ninguna regla aplicada: el párrafo se ve
+   exactamente igual que cualquier otro. Cuando se prende, recibe un filete
+   sutil a la izquierda y un fondo levísimo del color de acento del libro.
+   El texto no cambia de tamaño ni de posición —solo cobra contorno—. */
+[data-ajas="on"] .prose .aja {
+  border-left: 2px solid var(--verde);
+  background: rgba(255, 122, 24, 0.06);
+  padding: 0.4rem 1rem 0.4rem 1.1rem;
+  margin-left: -1.1rem;
+  margin-right: -1rem;
+  border-radius: 2px 6px 6px 2px;
+}
+
+/* ===== Subtítulos de sección ===== */
+.prose h2.section-subtitle {
+  font-family: var(--font-body); font-weight: 400;
+  font-size: 1.15rem; letter-spacing: 0.02em;
+  color: var(--ink); margin: 2.6rem 0 0.9rem;
+  padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule);
+}
+/* ===== Citas en bloque — filete fino a la izquierda ===== */
+.prose .pull-quote {
+  margin: 2.4rem 0; padding: 0.3rem 0 0.3rem 1.5rem;
+  border-left: 2px solid var(--rule);
+}
+.prose .pull-quote p {
+  font-size: 1.06rem; font-style: italic; line-height: 1.7; color: var(--ink); margin: 0 0 0.7rem;
+}
+.prose .pull-quote cite {
+  display: block; font-style: italic; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft);
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<div class="read-progress" aria-hidden="true"><i></i></div>
+<div class="ui-settings">
+  <button class="ui-gear" aria-label="Ajustes de lectura" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+  </button>
+  <div class="ui-panel" role="menu" aria-label="Ajustes de lectura">
+    <h4>Tema</h4>
+    <div class="ui-row" data-group="theme">
+      <button data-theme-val="oscuro">Oscuro</button>
+      <button data-theme-val="sepia">Sepia</button>
+      <button data-theme-val="claro">Claro</button>
+    </div>
+    <h4>Tamaño del texto</h4>
+    <div class="ui-row" data-group="fs">
+      <button data-fs="0.9" style="font-size:.8rem">A</button>
+      <button data-fs="1">A</button>
+      <button data-fs="1.15" style="font-size:1.15rem">A</button>
+      <button data-fs="1.3" style="font-size:1.3rem">A</button>
+    </div>
+  </div>
+</div>
+
+<nav class="nav-top"><a href="index.html">← Índice</a></nav>
+
+<article class="page" id="contenido" tabindex="-1">
+
+  <div class="chapter-eyebrow">Parte I · Fundamentos</div>
+  <h1 class="chapter-title">Acción humana</h1>
+  <p class="chapter-subtitle">Saifedean Ammous — Principios de Economía</p>
+
+  <div class="ornament">• • •</div>
+
+  <div class="prose">
+
+    <blockquote class="pull-quote">
+      <p>El estudio de la economía no tiene que ver con las cosas y los objetos materiales tangibles, sino con los hombres, sus significados y sus acciones. Los bienes, las mercancías y la riqueza y todas las demás nociones de conducta no son elementos de la naturaleza; son elementos del significado y la conducta humanos. Quien quiera ocuparse de ellos no debe mirar al mundo exterior; debe buscarlos en el significado de los hombres que actúan.</p>
+      <cite class="no-audio">Ludwig von Mises</cite>
+    </blockquote>
+
+    <p class="lead">La <em>opus magnum</em> de Ludwig von Mises, <em>La acción humana</em>, ofreció una redefinición explícita del campo de la economía como el estudio de la acción y la elección humanas en condiciones de escasez. Mises creía que el razonamiento económico correcto y el análisis adecuado de los fenómenos económicos debían basarse en la acción humana, más que en el análisis de los objetos materiales y sus propiedades, o de variables agregadas y abstractas. Aunque la perspectiva de Mises al principio pueda parecer pedante e improductiva, este capítulo explicará cómo la misma es una herramienta muy poderosa para entender la realidad económica.</p>
+    <p>Mises argumenta que los filósofos han intentado durante mucho tiempo estudiar la evolución y el destino de la humanidad basándose en una comprensión de lo que la historia, Dios o la naturaleza habían previsto para los seres humanos. Tales análisis se ocupaban de la humanidad en su conjunto o se centraban en conceptos colectivistas como nación, raza o iglesia, y trataban de encontrar leyes que explicaran el comportamiento de tales entidades y sus consecuencias, como si la historia tuviera leyes inamovibles que descubrir, semejantes a las de las ciencias naturales.</p>
+    <p>Al escribir <em>Principios de Economía</em> en 1871, Carl Menger fue pionero en el análisis marginal de las cuestiones económicas. Esta «revolución marginal» supuso una alternativa radicalmente distinta a los métodos de estudio de los seres humanos que se usaban hasta entonces. En lugar de observar la historia basándose en la voluntad de Dios, de la naturaleza, o a través de la nación, la raza o la iglesia, el análisis marginal demostró que la sociedad humana se entiende mejor analizando sus principales fuerzas impulsoras: la elección y la acción humana a nivel individual. La escuela austriaca de economía surgió en torno a Menger en Viena. Pocos años después, Léon Walras desarrollaría su propia concepción del marginalismo, basada en un concepto de equilibrio general. El equilibrio general walrasiano se convertiría en la tradición dominante de la economía moderna, basada en la matematización y las relaciones entre agregados.</p>
+
+    <h2 class="section-subtitle">Acción, intención y razón</h2>
+    <p>Mises define la acción humana como «comportamiento intencionado», con el fin de distinguirla de los actos instintivos, impulsivos o emocionales. «La acción es la voluntad puesta en marcha y transformada en actuación; es pretender alcanzar fines y objetivos; es la reacción coherente del ego a los estímulos y las condiciones de su entorno; es el ajuste consciente de una persona al estado del universo que determina su vida».</p>
+    <p>El alumno de Mises, Murray Rothbard, define la acción humana como «comportamiento intencionado dirigido hacia el logro, en algún momento futuro, de fines que implican la satisfacción de deseos que de otro modo quedarían insatisfechos». Mises postula que, para que tenga lugar la acción, se requiere que el ser humano posea un estado actual e imagine un estado más satisfactorio, y la expectativa de que un comportamiento intencionado pueda aliviar la insatisfacción actual.</p>
+    <p>La acción racional es la cualidad humana por excelencia: es lo que distingue a los seres humanos de los demás animales. Los seres humanos actuamos intencionadamente porque estamos dotados de razón y somos capaces de dirigirla a la consecución de nuestros fines. Somos capaces de reconocer las relaciones causales del mundo que nos rodea y actuar en consecuencia para conseguir un estado de cosas más favorable. También somos capaces de entender que los demás pueden razonar y actuar para alcanzar sus fines. Como dice Mises:</p>
+
+    <blockquote class="pull-quote">
+      <p>El hombre no es un ser que no puede evitar ceder al impulso que más urgentemente pide satisfacción. El hombre es un ser capaz de dominar sus instintos, emociones e impulsos; puede racionalizar su comportamiento. Renuncia a satisfacer un impulso urgente para satisfacer otros deseos. No es esclavo de sus anhelos. Tras ordenar en escala valorativa sus deseos y anhelos, elige; en definitiva, actúa. Lo que distingue al hombre de las bestias es precisamente que ajusta su comportamiento deliberadamente. El hombre es el ser capaz de inhibirse; que puede dominar sus impulsos y deseos; que tiene el poder para refrenar sus instintos.</p>
+      <cite class="no-audio">Mises, <em>La acción humana</em></cite>
+    </blockquote>
+
+    <p>Una imagen mental útil para explicar la primacía de la acción humana es pensar en el mundo físico que nos rodea como plastilina inerte, que podemos moldear con nuestras manos para darle diferentes formas y crear objetos con base en nuestro razonamiento e imaginación. Los objetos inanimados son materia muerta, y es la razón humana dando forma a las acciones humanas la que reorganiza esta materia y le da valor, significado y finalidad. El mundo material se entiende mucho mejor si se estudia como el producto de la razón y la acción humana. No son los astros, ni los nombres abstractos, ni las entidades colectivistas los que actúan, sino los individuos. Si se quieren entender las condiciones del mundo material, lo más útil es estudiar las acciones de los seres humanos que lo moldean.</p>
+    <p>Desde la perspectiva misesiana y austriaca, la acción humana se entiende y define como racional. La palabra «racional» aquí no se refiere a la corrección de la acción según algún criterio objetivo, ni a la idoneidad de la acción para alcanzar los fines del hombre que actúa, ni emite otros juicios morales. Más bien, lo racional se define como el producto de la razón deliberativa. Siempre que el hombre razona y actúa, actúa racionalmente. El hecho de que tal acción conduzca o no al logro de su objetivo, y el hecho de que cuente o no con la aprobación de otra parte, son irrelevantes para la racionalidad tal como la entiende Mises. Una persona puede darse cuenta de que una acción fue contraproducente y arrepentirse de lo que hizo, pero eso no cambia la racionalidad del acto. Como explica Mises, «lo opuesto a la acción humana no es la conducta irracional, sino la reacción refleja de nuestros órganos corporales al estímulo externo, reacción que no puede ser controlada a voluntad».</p>
+
+    <h2 class="section-subtitle">Análisis económico</h2>
+    <p>Concebir la economía como el estudio de la acción humana en condiciones de escasez nos permite definir los términos más importantes de la disciplina en función de su relación con las necesidades humanas, de cómo los trata la razón humana y cómo los seres humanos les dan forma. Cuando se explica, define y comprende a través de la lente de la acción humana, la terminología económica se vuelve más clara, y el análisis económico, más fructífero. Hans-Hermann Hoppe lo explica así:</p>
+
+    <blockquote class="pull-quote">
+      <p>Todos los teoremas económicos verdaderos consisten en (a) una comprensión del significado de la acción, (b) una situación o un cambio situacional —que se supone dado o identificado como dado— y descrito en términos de categorías de acción, y (c) una deducción lógica de las consecuencias —también en términos de tales categorías— que deben resultar para un actor a causa de esta situación o cambio situacional.</p>
+      <cite class="no-audio">Hans-Hermann Hoppe</cite>
+    </blockquote>
+
+    <p>El objetivo central del enfoque austriaco es entender los procesos causales de la actividad económica y sus consecuencias. La deducción lógica, los experimentos mentales y el sentido común basado en la familiaridad con la realidad se emplean para comprender las implicaciones de los procesos económicos. Al principio este enfoque podría parecer banal e infructuoso en comparación con los enfoques dominantes de la economía convencional actual, cimentados en el análisis matemático. Pero una mirada más atenta mostrará por qué el análisis cuantitativo es inadecuado para construir un marco teórico de la economía, y por qué carece de sentido y de utilidad sin deducciones y conclusiones lógicas que lo motiven. En consonancia con esta crítica, el libro presentará y analizará los actos económicos con lenguaje claro, no con ecuaciones matemáticas.</p>
+
+    <h2 class="section-subtitle">Análisis cuantitativo</h2>
+    <p>La crítica austriaca al análisis cuantitativo se resume en el pensamiento de Mises:</p>
+
+    <blockquote class="pull-quote">
+      <p>La deficiencia fundamental implícita en todo planteamiento cuantitativo de los problemas económicos consiste en olvidar que no existen relaciones constantes entre lo que se denominan dimensiones económicas. No hay constancia ni continuidad en las valoraciones ni en la formación de las relaciones de intercambio entre las distintas mercancías. Cada nuevo dato provoca una reorganización de toda la estructura de precios. El entendimiento, que trata de captar lo que ocurre en la mente de los hombres afectados, puede abordar el problema de la predicción de las condiciones futuras.</p>
+      <cite class="no-audio">Mises, <em>La acción humana</em></cite>
+    </blockquote>
+
+    <p>Todos los fenómenos físicos pueden medirse utilizando un conjunto consistente, estándar y uniforme de unidades básicas. Esto contrasta con lo que ocurre con los fenómenos económicos, ya que no existe una unidad estándar con la que puedan realizarse y compararse las mediciones económicas del valor. El valor es subjetivo. La utilidad que los individuos obtienen de los bienes también es subjetiva y cambia constantemente en función del individuo, del momento en que se realiza la valoración y de la abundancia relativa del bien. No existe la posibilidad de hacer comparaciones interpersonales de utilidad y, por lo tanto, la matematización de la utilidad será siempre hipotética y teórica, nunca precisa y reproducible.</p>
+    <p>Sin una unidad común con la cual medir y comparar la utilidad, es imposible formular una ley cuantitativa en torno, por ejemplo, a cambios en la oferta y la demanda basados en cambios en los precios, como una ley que plantee que un aumento del 1 % en el precio de un bien corresponde a una disminución porcentual determinada en la cantidad demandada. El impacto de un cambio concreto en el precio sobre la demanda de un bien, por parte de un individuo, se produce a través del mecanismo causal de los cambios en la utilidad evaluada de manera individual. Ese factor no es medible ni cuantificable.</p>
+    <p>La experimentación reproducible sobre fenómenos económicos también es imposible. Los objetos de estudio de las ciencias naturales son la estructura y el comportamiento del mundo físico, que se asume regular, con propiedades aislables y observables mediante experimentación repetible. Pero los objetos de estudio de las ciencias sociales son las ideas y acciones de los seres humanos, que son inconmensurables y no cuantificables. La experimentación sobre fenómenos irregulares con unidades mal definidas no puede producir resultados comparables y repetibles. Tampoco es posible realizar experimentos precisos en economía, porque su objeto de estudio es la acción de los seres humanos en el mundo real, y las condiciones de los laboratorios no pueden reproducir las consecuencias de las decisiones económicas reales.</p>
+    <p>Un problema más profundo de los enfoques cuantitativos es que confunden los factores que podemos medir con los factores causales que moldean el mundo. Los métodos cuantitativos que establecen relaciones entre medidas agregadas sitúan a los agregados como las fuerzas causales sin más fundamento que el hecho de que pueden medirse. En las ciencias naturales, la complejidad de las partículas que componen un gas puede reducirse a medidas agregadas básicas de presión, temperatura y volumen, sin pérdida alguna de precisión analítica. Los átomos y las moléculas no tienen voluntad propia, no pueden razonar ni elegir cómo responder al entorno. Como carecen de razón, su comportamiento se puede estudiar y predecir con precisión.</p>
+    <p>Sin embargo, al examinar las cuestiones económicas, nos enfrentamos a la realidad de que los seres humanos y sus acciones son los factores causales que moldean la realidad económica, motivados por sus consideraciones subjetivas y preferencias personales. Lejos de ser objetos inanimados que reaccionan de forma matemáticamente predecible, los seres humanos reaccionan de manera irreductiblemente compleja. Tratar de disimular esta complejidad examinando sólo medidas agregadas superficiales es el principal error de pseudociencias modernas fallidas como la macroeconomía convencional. Como explica Friedrich Hayek:</p>
+
+    <blockquote class="pull-quote">
+      <p>A diferencia de lo que ocurre en las ciencias físicas, en la economía y en otras disciplinas que tratan fenómenos esencialmente complejos, los aspectos de los fenómenos que debemos explicar, sobre los que podemos obtener datos cuantitativos, son necesariamente limitados y pueden no incluir los importantes. Mientras que en las ciencias físicas el investigador podrá medir lo que considera importante de acuerdo con una teoría previa, en las ciencias sociales a menudo se trata como importante lo que resulte ser accesible a la medición. Esto se lleva en ocasiones hasta el punto de que se exige que nuestras teorías se formulen en términos que se refieran sólo a magnitudes medibles.</p>
+      <cite class="no-audio">Friedrich Hayek</cite>
+    </blockquote>
+
+    <p>El hecho de que podamos elaborar medidas de desempleo, Producto Bruto Interno, consumo, inversión y otras magnitudes económicas no significa que estos factores estén relacionados causalmente entre sí, en relaciones científicamente predeterminadas. Dado que los motores reales de estas medidas son las acciones de los individuos, no hay razón para suponer que sean algo más que epifenómenos superficiales, sin relación con los mecanismos causales que impulsan las relaciones examinadas.</p>
+    <p>Intentar formular algo que tenga sentido a partir de las relaciones entre estos agregados es similar a un científico que estudia gases e intenta formular leyes basadas en el color del recipiente, la marca del recipiente, la primera letra de su nombre y otros epifenómenos sin influencia en el experimento. Los que regulan el sistema son la temperatura, la presión y el volumen que surgen de la actividad de las partículas del gas; el color del recipiente y el nombre del científico son irrelevantes. Del mismo modo, es la acción de los seres humanos la que determina los resultados económicos, no las medidas agregadas elaboradas en las oficinas de estadística de los gobiernos.</p>
+    <p>Esto no quiere decir que todas las medidas estadísticas sean ruido sin valor, ya que tales agregados pueden ser buenas aproximaciones de fenómenos económicos. La objeción austriaca no se refiere a las estadísticas económicas en sí, sino al intento de construir teorías con pretensiones científicas a partir de agregados estadísticos. Los intentos más atroces y dañinos de imitar la metodología de las ciencias naturales en la economía se dan en la macroeconomía. La envidia de los macroeconomistas convencionales por la física ha alimentado, durante un siglo, la búsqueda de un sistema de ecuaciones que aclare la dinámica de una economía del mismo modo que las ecuaciones de la física explican el movimiento de los objetos. Hayek llama a esto cientificismo: la imitación servil del método y el lenguaje de la ciencia donde no es aplicable.</p>
+    <p>En la macroeconomía convencional, los agregados se construyen a partir de las estadísticas nacionales, y se buscan relaciones matemáticas entre ellos. Dichas relaciones se establecen de manera teórica, basándose en la autoridad de algún economista que haya declarado cómo funcionan los mecanismos causales, no en la experimentación. El sistema macroeconómico de John Maynard Keynes es el ejemplo más destacado. Según Keynes, el estado de la economía es, ante todo, un reflejo de los niveles de gasto: si el gasto es demasiado alto, el resultado es inflación; si es demasiado bajo, desempleo y recesión. Si el desempleo es demasiado alto, las ecuaciones macroeconómicas modernas sugieren aumentar el gasto agregado mediante mayor gasto gubernamental o políticas crediticias expansivas. Una inflación elevada se solucionaría reduciendo el gasto agregado a través de impuestos o políticas crediticias contractivas.</p>
+    <p>Pero las identidades contables no denotan causalidad en el mundo real. En macroeconomía no hay mecanismos para establecer experimentalmente la causalidad como en las ciencias naturales. Las ecuaciones de Keynes que intentan predecir el impacto de una medida agregada sobre otra no guardan relación con causas y efectos reales, porque no hay forma de medir, testear y verificar nada de ello.</p>
+    <p>Ninguna investigación puede ensayar la hipótesis de Keynes, porque no se puede experimentar con economías enteras compuestas por millones de personas con planes de vida individuales. Incluso al observar las estadísticas gubernamentales recopiladas por los partidarios de la teoría, la experiencia real ha contradicho la teoría durante décadas. El sistema keynesiano implica una relación inversa entre desempleo e inflación, llamada curva de Phillips, que se supone descendente. Pero sesenta años de estadísticas del gobierno de Estados Unidos no muestran ningún <em>trade-off</em> visible entre ambas variables.</p>
+    <p>Sin embargo, esta teoría persiste hasta el día de hoy, a pesar de décadas de evidencia acumulada que prueban que no es una explicación correcta de cómo funciona el mundo. En los setenta, cuando la inflación y el desempleo aumentaron al mismo tiempo en todo el mundo, el <em>trade-off</em> keynesiano quedó ampliamente refutado más allá de toda duda. Pero la ventaja de que la economía no disponga de un método sistemático y reproducible de experimentación es que las teorías siempre pueden ajustarse tras su fracaso, de forma que puedan justificar las observaciones del mundo real que no se ajustan a ellas. Esa es la esencia de la pseudociencia.</p>
+    <p>Lo gracioso es que los keynesianos simplemente actualizaron su teoría agregando un nuevo término: el «shock de oferta». El shock de oferta es un término incoherente, inventado como justificación a posteriori para explicar cómo pueden producirse simultáneamente aumentos del desempleo y la inflación. Desde entonces, las economías del mundo han sido testigos de todas las combinaciones imaginables de tasas de inflación y desempleo, y los keynesianos han mantenido con éxito el engaño de que existe tal <em>trade-off</em>. Cualquier desviación puede explicarse invocando un shock de oferta u otras alternativas a la razón, por lo que ninguna observación puede refutarlo. Lo explica todo y, por lo tanto, no explica nada.</p>
+    <p>Tras un siglo de imitar a la física y de haber abandonado los fundamentos metodológicos clásicos, la economía no ha logrado producir ni una sola ley o fórmula cuantitativa que pueda testearse y reproducirse de forma independiente. Las ecuaciones macroeconómicas van y vienen con las modas de las escuelas de pensamiento modernas, pero ninguna se ha medido objetivamente y reproducido de forma que pueda calificarse como ley científica. Que la macroeconomía convencional dé poder a los gobiernos centrales y enriquezca a los académicos ayudaría a explicar por qué ha perdurado.</p>
+
+    <h2 class="section-subtitle">Un contraste de enfoques</h2>
+    <p>Para ilustrar el enfoque basado en la acción humana y compararlo con la metodología cuantitativa moderna, podemos utilizar como ejemplo la cuestión de los salarios mínimos impuestos por el gobierno, que fijan un límite inferior a lo que los empleadores pueden pagar a sus trabajadores. Se trata de una intervención política popular en la mayor parte del mundo, y las perspectivas opuestas sirven de lección práctica sobre los dos marcos diferentes para pensar la economía: las relaciones entre agregados y la acción humana.</p>
+    <p>Imaginemos a una política que quiere ganar las elecciones en un país sin ley de salario mínimo. Existe una variación natural en los salarios que ganan los trabajadores. La política decide focalizar su campaña en la mejora del nivel de vida de los miembros más pobres mediante la imposición de un salario mínimo de diez dólares por hora, que imagina garantizará a sus beneficiarios una vida digna. Un economista a su servicio observa que el 20 % de todos los trabajadores, que mantienen al 35 % de toda la población, ganan actualmente menos de diez dólares por hora. El efecto agregado de imponer el salario mínimo conduciría a un aumento de los salarios equivalente a 10 mil millones de dólares al año. Siguiendo sofisticados modelos históricos y teóricos, el economista fíat estima que el aumento se traducirá en un aumento de 8 mil millones de dólares en el gasto de los consumidores, lo que implicaría la creación de 40 mil nuevos puestos de trabajo, un aumento del 12 % en la producción industrial, del 4 % en las exportaciones y de 16 mil millones de dólares en el producto bruto interno.</p>
+    <p>Según este enfoque colectivista, los agregados son los agentes causales de los fenómenos económicos y actúan de acuerdo con las relaciones teóricas establecidas por los economistas fíat, de forma similar a como los físicos y químicos establecen leyes científicas. La ley de salario mínimo suena como una gran bendición para la sociedad: los trabajadores más pobres aumentarán considerablemente su nivel de vida, algunos desempleados encontrarán trabajo gracias al gasto adicional y toda la sociedad será más productiva.</p>
+    <p>Si esto parece demasiado bueno para ser cierto, es porque no es cierto. Las cosas se ven de otra manera a través de la lente misesiana del economista sensato. Al saber que la acción humana es el verdadero motor de los asuntos humanos, el economista sensato no analiza el mundo a través de relaciones entre cantidades agregadas. En su lugar, estudia las decisiones de los seres humanos reales afectados por esta nueva ley. El empleo es un acuerdo entre dos individuos: el empleador y el empleado. El empleador contratará a alguien si su contribución a los ingresos de la empresa supera su salario. Si el salario mínimo legal supera los ingresos marginales que aporta, contratarlo le cuesta dinero a la empresa y se convierte en una donación de la empresa al trabajador. Los empleadores saben que contratar a alguien así es un error costoso, y los que no lo sepan pronto verán cómo su empresa fracasa.</p>
+    <p>Los salarios, como todos los precios del mercado, no son cifras arbitrarias elegidas por empleadores codiciosos. Son un reflejo de la productividad marginal del trabajador. Cuando el gobierno impone un salario mínimo, no altera mágicamente el cálculo del empleador, ni aumenta mágicamente la productividad del trabajador. El empleador seguirá contratando únicamente a trabajadores cuya productividad sea superior a su salario. Así, la ley de salario mínimo hace que sea ilegal contratar a cualquier persona cuya productividad marginal sea inferior a diez dólares por hora. Cualquier trabajador cuya productividad sea inferior a esa cantidad se convertirá en un lastre para cualquier empresa que lo contrate y le pague esa cantidad. O lo despiden, o la empresa quiebra. En todos los casos, estos puestos de trabajo se eliminan, y todo aquel cuya productividad sea inferior a diez dólares por hora es ahora legalmente no empleable.</p>
+    <p>Visto a través de la lente de la acción humana, el efecto de una ley de salario mínimo es hacer que sea ilegal que los trabajadores con baja productividad consigan trabajo. Los que pierden su empleo son los que tienen la productividad más baja de la sociedad: suelen ser los más pobres, los más jóvenes y los que tienen menos experiencia. Prohibirles trabajar es prohibirles aumentar su productividad aprendiendo en el trabajo. Por lo tanto, las leyes de salario mínimo son especialmente perniciosas para las personas que más necesitan trabajar, y son un factor causal de la aparición del desempleo a gran escala. Otra implicación es que algunas empresas pagarían salarios más altos, pero también subirían los precios de sus productos para financiarlos. Los consumidores pagarían el precio de la ley a través de un aumento de los precios de los bienes que consumen.</p>
+    <p>Todas estas consecuencias son deducibles por economistas sensatos que analizan las leyes y evalúan las implicaciones que tendrán en individuos que actúan racionalmente. Los precios son un reflejo de la realidad del mercado que subyace a la situación, una realidad impulsada por la acción humana. Intentar alterar la realidad del mercado subyacente alterando su reflejo es inviable. Todos los intentos de imponer controles de precios han fracasado porque este tipo de planificación centralizada ignora el papel de la acción humana. Los reyes, emperadores, políticos y burócratas ordenan que los epifenómenos observables asociados a los mercados se sitúen dentro de rangos aceptables. Suponen que los seres humanos simplemente se limitarán a ajustar sus acciones para garantizar el cumplimiento de estas leyes. Pero en realidad, los seres humanos ajustan sus acciones para optimizar su propio bienestar, no para satisfacer a los burócratas. El comerciante prefiere no vender a vender con pérdidas. O existe el precio de libre mercado o no existe ningún precio de mercado. En esta última economía, los precios reales se expresan en mercados clandestinos, es decir, en los «mercados negros».</p>
+    <p>Los economistas de verdad entienden que los fenómenos económicos observables no son más que manifestaciones de las acciones subyacentes de los seres humanos involucrados. Los seres humanos siempre buscan mejorar su propia situación en la vida, y resulta inútil obligarlos a actuar en contra de sus propios intereses. La imposición de leyes contrarias al propio interés de los seres humanos no cambia la naturaleza humana, sino que reduce el incentivo para comportarse conforme a la ley, destruyendo así el respeto de la sociedad por las leyes. Esta comprensión esencial es la razón por la que el economista sensato está a favor de la libertad económica individual y en contra de su restricción por parte de los gobiernos. El espíritu humano es indomable, y no actuará de un modo perjudicial para sí mismo.</p>
+    <p>El mundo ya cuenta con demasiados libros de texto de economía escritos en la tradición cuantitativa pseudocientífica. Este libro no será uno de ellos. No tratará de explicar la economía en el lenguaje de las ciencias naturales y no contendrá ecuaciones que relacionen variables agregadas. Tales enfoques prometen mucho, pero aportan poco en términos de conocimientos confiables, útiles y aplicables.</p>
+
+  </div>
+
+</article>
+
+<nav class="nav-foot"><a class="prev" href="index.html">Índice</a><a class="idx" href="index.html">Índice</a><span></span></nav>
+
+<aside class="audio-pill" data-state="collapsed" data-duration="29:20" data-storage-key="accion-humana" aria-label="Reproductor de audio del capítulo">
+  <audio class="ap-audio" preload="metadata" src="audio/accion-humana.mp3"></audio>
+  <button class="ap-play" type="button" aria-label="Reproducir capítulo">
+    <svg class="ap-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="ap-icon-pause" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+  </button>
+  <div class="ap-resume-hint" aria-hidden="true"></div>
+  <div class="ap-meta">
+    <button class="ap-btn ap-skip ap-skip-back" type="button" aria-label="Retroceder 15 segundos" title="Retroceder 15 s (J)">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M11 6V3L6 7l5 4V8c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H3c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8z"/>
+        <text class="skip-label" x="11" y="17" text-anchor="middle">15</text>
+      </svg>
+    </button>
+    <button class="ap-btn ap-skip ap-skip-fwd" type="button" aria-label="Avanzar 15 segundos" title="Avanzar 15 s (L)">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M13 6V3l5 4-5 4V8c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8z"/>
+        <text class="skip-label" x="13" y="17" text-anchor="middle">15</text>
+      </svg>
+    </button>
+    <div class="ap-track" role="slider" tabindex="0" aria-label="Posición del audio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="ap-rail"></div>
+      <div class="ap-fill"></div>
+      <div class="ap-thumb"></div>
+    </div>
+    <div class="ap-time"><span class="ap-current">0:00</span><span class="ap-sep"> / </span><span class="ap-duration">--:--</span></div>
+    <button class="ap-btn ap-karaoke" type="button" aria-label="Resaltado palabra por palabra (toggle)" title="Karaoke (K)">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 18 L8 7 L12 18 M5.5 14 L10.5 14"/>
+        <path d="M19 18 V11.5 a3 3 0 0 0 -6 0 a3 3 0 0 0 3 3 a3 3 0 0 0 3 -3"/>
+        <line class="strike" x1="3" y1="20" x2="21" y2="4"/>
+      </svg>
+    </button>
+    <button class="ap-rate" type="button" aria-label="Velocidad de reproducción" title="Velocidad">1×</button>
+    <button class="ap-close" type="button" aria-label="Minimizar reproductor" title="Minimizar (Esc)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18"/></svg>
+    </button>
+  </div>
+</aside>
+
+<script>
+/* AUDIO PILL controller v2 */
+(function(){
+  var pill = document.querySelector('.audio-pill');
+  if (!pill) return;
+  var a = pill.querySelector('.ap-audio');
+  var b = pill.querySelector('.ap-play');
+  var pi = pill.querySelector('.ap-icon-play');
+  var ps = pill.querySelector('.ap-icon-pause');
+  var tr = pill.querySelector('.ap-track');
+  var fi = pill.querySelector('.ap-fill');
+  var th = pill.querySelector('.ap-thumb');
+  var cu = pill.querySelector('.ap-current');
+  var du = pill.querySelector('.ap-duration');
+  var rateBtn = pill.querySelector('.ap-rate');
+  var closeBtn = pill.querySelector('.ap-close');
+  var skipBackBtn = pill.querySelector('.ap-skip-back');
+  var skipFwdBtn  = pill.querySelector('.ap-skip-fwd');
+  var karaokeBtn  = pill.querySelector('.ap-karaoke');
+  var hint        = pill.querySelector('.ap-resume-hint');
+  var STORAGE_KEY = pill.getAttribute('data-storage-key') || 'default';
+  var POS_KEY = 'audio-pill:pos:' + STORAGE_KEY;
+  var KARAOKE_KEY = 'audio-pill:karaoke';
+  var RATES = [1, 1.25, 1.5, 0.8];
+  var rateIdx = 0, lastSaveAt = 0;
+  function fmt(t){ if(!isFinite(t)) return '0:00'; var m=Math.floor(t/60), s=Math.floor(t%60); return m+':'+(s<10?'0':'')+s; }
+  function expand(){ pill.setAttribute('data-state','expanded'); }
+  function collapse(){ pill.setAttribute('data-state','collapsed'); }
+  function setPlayIcon(playing){
+    if (playing) { pi.style.display='none'; ps.style.display=''; b.setAttribute('aria-label','Pausar'); }
+    else         { pi.style.display=''; ps.style.display='none'; b.setAttribute('aria-label','Reproducir'); }
+  }
+  function safePlay(){
+    var p = a.play();
+    if (p && typeof p.catch === 'function') p.catch(function(){});
+  }
+  function savePos(){
+    if (!a.duration || !isFinite(a.duration)) return;
+    var t = a.currentTime;
+    if (t > a.duration - 8) { try { localStorage.removeItem(POS_KEY); } catch(e){} return; }
+    if (t < 3) return;
+    try { localStorage.setItem(POS_KEY, String(Math.floor(t))); } catch(e){}
+  }
+  function loadPos(){
+    try { var v = localStorage.getItem(POS_KEY); var t = parseFloat(v); return isFinite(t) && t > 0 ? t : 0; }
+    catch(e){ return 0; }
+  }
+  function showResumeHint(s){
+    if (!hint) return;
+    hint.textContent = '↻ ' + fmt(s);
+    hint.classList.add('show');
+    setTimeout(function(){ hint.classList.remove('show'); }, 2200);
+  }
+  a.addEventListener('loadedmetadata', function(){
+    if (isFinite(a.duration)) pill.setAttribute('data-duration', fmt(a.duration));
+    if (du && isFinite(a.duration)) du.textContent = fmt(a.duration);
+    var saved = loadPos();
+    if (saved > 0 && saved < a.duration - 8) {
+      a.currentTime = saved;
+      showResumeHint(saved);
+    }
+  });
+  a.addEventListener('timeupdate', function(){
+    var pct = a.duration ? (a.currentTime/a.duration)*100 : 0;
+    fi.style.width = pct+'%'; th.style.left = pct+'%';
+    cu.textContent = fmt(a.currentTime);
+    tr.setAttribute('aria-valuenow', Math.round(pct));
+    if (!a.paused) {
+      var now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : 0;
+      if (now - lastSaveAt > 3000) { savePos(); lastSaveAt = now; }
+    }
+  });
+  a.addEventListener('pause', function(){ savePos(); });
+  window.addEventListener('beforeunload', savePos);
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) savePos(); });
+  a.addEventListener('play',  function(){ pill.classList.add('playing'); setPlayIcon(true); expand(); });
+  a.addEventListener('pause', function(){ pill.classList.remove('playing'); setPlayIcon(false); });
+  a.addEventListener('ended', function(){ pill.classList.remove('playing'); setPlayIcon(false); try { localStorage.removeItem(POS_KEY); } catch(e){} });
+  b.addEventListener('click', function(e){ e.stopPropagation(); if (a.paused) safePlay(); else a.pause(); });
+  closeBtn.addEventListener('click', function(e){ e.stopPropagation(); a.pause(); collapse(); });
+  rateBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    rateIdx = (rateIdx+1) % RATES.length;
+    var r = RATES[rateIdx];
+    a.playbackRate = r;
+    rateBtn.textContent = (r % 1 === 0 ? r.toFixed(0) : r) + '×';
+    rateBtn.classList.toggle('active', r !== 1);
+    rateBtn.setAttribute('aria-label', 'Velocidad: ' + rateBtn.textContent + '. Tocar para cambiar.');
+  });
+  function skip(secs){ if (!a.duration) return; a.currentTime = Math.max(0, Math.min(a.duration, a.currentTime + secs)); }
+  if (skipBackBtn) skipBackBtn.addEventListener('click', function(e){ e.stopPropagation(); skip(-15); });
+  if (skipFwdBtn)  skipFwdBtn.addEventListener('click',  function(e){ e.stopPropagation(); skip(+15); });
+  function applyKaraokePref(){
+    var off = false;
+    try { off = localStorage.getItem(KARAOKE_KEY) === 'off'; } catch(e){}
+    document.body.classList.toggle('karaoke-off', off);
+    if (karaokeBtn) {
+      karaokeBtn.classList.toggle('active', !off);
+      karaokeBtn.setAttribute('aria-pressed', String(!off));
+      karaokeBtn.setAttribute('aria-label', off ? 'Activar resaltado palabra por palabra' : 'Desactivar resaltado palabra por palabra');
+    }
+  }
+  applyKaraokePref();
+  if (karaokeBtn) karaokeBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var current = document.body.classList.contains('karaoke-off');
+    try { localStorage.setItem(KARAOKE_KEY, current ? 'on' : 'off'); } catch(e){}
+    applyKaraokePref();
+  });
+  (function(){
+    var dragging = false, wasPlaying = false;
+    function seekAt(clientX){
+      if (!a.duration) return;
+      var r = tr.getBoundingClientRect();
+      var pct = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
+      a.currentTime = pct * a.duration;
+    }
+    function onDown(e){
+      if (!a.duration) return;
+      dragging = true;
+      wasPlaying = !a.paused;
+      if (wasPlaying) a.pause();
+      tr.classList.add('dragging');
+      var x = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      seekAt(x);
+      e.preventDefault();
+    }
+    function onMove(e){
+      if (!dragging) return;
+      var x = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      seekAt(x);
+      e.preventDefault();
+    }
+    function onUp(){
+      if (!dragging) return;
+      dragging = false;
+      tr.classList.remove('dragging');
+      if (wasPlaying) { var p = a.play(); if (p && typeof p.catch === 'function') p.catch(function(){}); }
+    }
+    tr.addEventListener('mousedown', onDown);
+    tr.addEventListener('touchstart', onDown, { passive: false });
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove, { passive: false });
+    window.addEventListener('mouseup', onUp);
+    window.addEventListener('touchend', onUp);
+    window.addEventListener('touchcancel', onUp);
+  })();
+  tr.addEventListener('keydown', function(e){
+    if (!a.duration) return;
+    if      (e.key==='ArrowRight'){ a.currentTime = Math.min(a.duration, a.currentTime+5); e.preventDefault(); }
+    else if (e.key==='ArrowLeft') { a.currentTime = Math.max(0, a.currentTime-5);          e.preventDefault(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.target && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    if (e.target && e.target.isContentEditable) return;
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    var k = e.key.toLowerCase();
+    if (k === ' ' && !(/^(BUTTON|A)$/.test(e.target.tagName))) {
+      if (!pill.contains(document.activeElement)) return;
+      e.preventDefault();
+      if (a.paused) safePlay(); else a.pause();
+    } else if (k === 'j') { skip(-15); e.preventDefault(); }
+      else if (k === 'l') { skip(+15); e.preventDefault(); }
+      else if (k === 'k' && karaokeBtn) { karaokeBtn.click(); e.preventDefault(); }
+      else if (e.key === 'Escape' && pill.getAttribute('data-state') === 'expanded') { a.pause(); collapse(); }
+  });
+})();
+</script>
+<script>
+/* Karaoke v2: carga alignment y resalta palabra + puntuación. Respeta body.karaoke-off. */
+(function(){
+  var ALIGN_URL = 'audio/accion-humana.alignment.json';
+  var audio = document.querySelector('.ap-audio');
+  if (!audio) return;
+  var words = null, wordEls = [], glueEls = [], lastIdx = -1, lastScrollAt = 0;
+  document.querySelectorAll('.w').forEach(function(el){
+    var i = parseInt(el.getAttribute('data-w'), 10);
+    if (!isNaN(i)) wordEls[i] = el;
+  });
+  try {
+    var allW = document.querySelectorAll('.w');
+    var rootEls = [];
+    allW.forEach(function(w){
+      var p = w.parentNode;
+      while (p && p !== document.body && !/^(P|H1|H2|H3|DIV|LI|BLOCKQUOTE)$/.test(p.tagName)) p = p.parentNode;
+      if (p && rootEls.indexOf(p) < 0) rootEls.push(p);
+    });
+    rootEls.forEach(function(root){
+      var walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, null);
+      var seq = [], n;
+      while ((n = walker.nextNode())) {
+        if (n.nodeType === 3) { if (n.textContent) seq.push(n); }
+        else if (n.nodeType === 1 && n.classList && n.classList.contains('w')) seq.push(n);
+      }
+      var currentIdx = -1;
+      seq.forEach(function(node){
+        if (node.nodeType === 1) {
+          var i = parseInt(node.getAttribute('data-w'), 10);
+          if (!isNaN(i)) currentIdx = i;
+        } else if (node.nodeType === 3 && currentIdx >= 0 && node.parentNode) {
+          var g = document.createElement('span');
+          g.className = 'g';
+          g.textContent = node.textContent;
+          node.parentNode.replaceChild(g, node);
+          if (!glueEls[currentIdx]) glueEls[currentIdx] = [];
+          glueEls[currentIdx].push(g);
+        }
+      });
+    });
+  } catch (err) { /* el karaoke base sigue funcionando sin glue */ }
+  fetch(ALIGN_URL)
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(data){
+      if (!data || !data.words) return;
+      words = data.words;
+      audio.addEventListener('timeupdate', tick);
+      audio.addEventListener('seeked', function(){ resetState(); tick(); });
+    })
+    .catch(function(){});
+  function findIdx(t){
+    if (!words || !words.length) return -1;
+    var lo = 0, hi = words.length - 1, ans = -1;
+    while (lo <= hi) { var mid = (lo + hi) >> 1; if (words[mid].s <= t) { ans = mid; lo = mid + 1; } else { hi = mid - 1; } }
+    return ans;
+  }
+  function setGlue(i, add){
+    var arr = glueEls[i]; if (!arr) return;
+    for (var k = 0; k < arr.length; k++) arr[k].classList[add ? 'add' : 'remove']('leida');
+  }
+  function resetState(){
+    for (var k = 0; k < wordEls.length; k++) {
+      if (wordEls[k]) wordEls[k].classList.remove('activa','leida');
+      setGlue(k, false);
+    }
+    lastIdx = -1;
+  }
+  function tick(){
+    if (!words) return;
+    var idx = findIdx(audio.currentTime);
+    if (idx === lastIdx) return;
+    if (idx < lastIdx) {
+      for (var i = idx + 1; i <= lastIdx; i++) {
+        if (wordEls[i]) wordEls[i].classList.remove('leida','activa');
+        setGlue(i, false);
+      }
+    } else {
+      for (var j = Math.max(0, lastIdx); j < idx; j++) {
+        if (wordEls[j]) { wordEls[j].classList.remove('activa'); wordEls[j].classList.add('leida'); }
+        setGlue(j, true);
+      }
+    }
+    if (idx >= 0 && wordEls[idx]) {
+      wordEls[idx].classList.remove('leida');
+      wordEls[idx].classList.add('activa');
+      var rect = wordEls[idx].getBoundingClientRect();
+      var vh = window.innerHeight;
+      if (rect.top < vh*0.22 || rect.bottom > vh*0.72) {
+        var now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : 0;
+        if (now - lastScrollAt > 600) {
+          wordEls[idx].scrollIntoView({behavior:'smooth', block:'center'});
+          lastScrollAt = now;
+        }
+      }
+    }
+    lastIdx = idx;
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    var wEl = (t && t.closest) ? t.closest('.w') : null;
+    if (!wEl) return;
+    var i = parseInt(wEl.getAttribute('data-w'), 10);
+    if (isNaN(i) || !words || !words[i]) return;
+    audio.currentTime = words[i].s;
+    if (audio.paused) { var p = audio.play(); if (p && typeof p.catch === 'function') p.catch(function(){}); }
+  });
+})();
+</script>
+<script>
+/* Subrayado con colores — instalado por tools/add_highlight_colors.py */
+(function(){
+  var STORAGE_KEY = 'highlights:' + (location.pathname.split('/').pop() || 'doc');
+  var prose = document.querySelector('.prose');
+  if (!prose) return;
+  var COLORS = ['a','n','v','c'];
+  var LAST_COLOR_KEY = 'highlights:last-color';
+  var DEFAULT_COLOR = 'a';
+  var lastColor;
+  try { lastColor = localStorage.getItem(LAST_COLOR_KEY) || DEFAULT_COLOR; } catch(e){ lastColor = DEFAULT_COLOR; }
+  if (COLORS.indexOf(lastColor) === -1) lastColor = DEFAULT_COLOR;
+
+  // saved: arreglo donde cada item es Number (=amarillo, compat) o [idx, color].
+  var saved;
+  try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e){ saved = []; }
+  if (!Array.isArray(saved)) saved = [];
+  // mapa idx → color para pintar
+  function buildMap(){
+    var m = {};
+    saved.forEach(function(it){
+      if (typeof it === 'number') m[it] = 'a';
+      else if (Array.isArray(it) && it.length >= 2) m[it[0]] = COLORS.indexOf(it[1]) !== -1 ? it[1] : 'a';
+    });
+    return m;
+  }
+  function paintAll(){
+    var m = buildMap();
+    prose.querySelectorAll('.w.hl').forEach(function(el){
+      el.classList.remove('hl'); el.removeAttribute('data-c');
+    });
+    Object.keys(m).forEach(function(idx){
+      var el = prose.querySelector('.w[data-w="'+idx+'"]');
+      if (el){ el.classList.add('hl'); el.setAttribute('data-c', m[idx]); }
+    });
+  }
+  paintAll();
+
+  function setColor(idx, color){
+    // quitar entry previa
+    for (var i = saved.length - 1; i >= 0; i--){
+      var it = saved[i];
+      var k = typeof it === 'number' ? it : (Array.isArray(it) ? it[0] : -1);
+      if (k === idx) saved.splice(i, 1);
+    }
+    // guardar (forma compacta para amarillo)
+    if (color === 'a') saved.push(idx);
+    else saved.push([idx, color]);
+  }
+  function removeIdx(idx){
+    for (var i = saved.length - 1; i >= 0; i--){
+      var it = saved[i];
+      var k = typeof it === 'number' ? it : (Array.isArray(it) ? it[0] : -1);
+      if (k === idx) saved.splice(i, 1);
+    }
+  }
+  function save(){
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch(e){}
+  }
+
+  var toolbar = document.createElement('div');
+  toolbar.className = 'hl-toolbar';
+  toolbar.setAttribute('role','toolbar');
+  toolbar.setAttribute('aria-label','Acciones de subrayado');
+  document.body.appendChild(toolbar);
+
+  var selectedIdxs = [];
+  function hideToolbar(){ toolbar.classList.remove('show'); selectedIdxs = []; }
+
+  function getSelectedWordIdxs(){
+    var sel = window.getSelection();
+    if (!sel || !sel.rangeCount || sel.toString().trim() === '') return [];
+    var range = sel.getRangeAt(0);
+    if (!prose.contains(range.commonAncestorContainer) && !range.intersectsNode(prose)) return [];
+    var idxs = [];
+    var allWords = prose.querySelectorAll('.w');
+    for (var i = 0; i < allWords.length; i++){
+      if (range.intersectsNode(allWords[i])){
+        var idx = parseInt(allWords[i].getAttribute('data-w'), 10);
+        if (!isNaN(idx)) idxs.push(idx);
+      }
+    }
+    return idxs;
+  }
+
+  function applyColor(color){
+    selectedIdxs.forEach(function(i){ setColor(i, color); });
+    try { localStorage.setItem(LAST_COLOR_KEY, color); } catch(e){}
+    lastColor = color;
+    save(); paintAll(); hideToolbar();
+    var sel = window.getSelection(); if (sel) sel.removeAllRanges();
+  }
+  function removeAll(){
+    selectedIdxs.forEach(function(i){ removeIdx(i); });
+    save(); paintAll(); hideToolbar();
+    var sel = window.getSelection(); if (sel) sel.removeAllRanges();
+  }
+
+  var COLOR_LABEL = { a: 'Amarillo · importante', n: 'Naranja · cita o dato', v: 'Verde · me convence', c: 'Coral · dudo' };
+
+  function showToolbar(x, y, currentColor){
+    toolbar.innerHTML = '';
+    COLORS.forEach(function(c){
+      var sw = document.createElement('button');
+      sw.type = 'button'; sw.className = 'hl-swatch';
+      sw.setAttribute('data-c', c);
+      sw.setAttribute('aria-label', COLOR_LABEL[c]);
+      sw.title = COLOR_LABEL[c];
+      if (currentColor === c) sw.classList.add('current');
+      sw.addEventListener('mousedown', function(e){ e.preventDefault(); });
+      sw.addEventListener('click', function(e){ e.stopPropagation(); applyColor(c); });
+      toolbar.appendChild(sw);
+    });
+    if (currentColor){
+      var div = document.createElement('span'); div.className = 'hl-divider';
+      toolbar.appendChild(div);
+      var rm = document.createElement('button');
+      rm.type = 'button'; rm.className = 'hl-btn hl-btn-rm';
+      rm.textContent = 'Quitar';
+      rm.addEventListener('mousedown', function(e){ e.preventDefault(); });
+      rm.addEventListener('click', function(e){ e.stopPropagation(); removeAll(); });
+      toolbar.appendChild(rm);
+    }
+    toolbar.classList.add('show');
+    // En móvil, el CSS la fija al fondo con !important; el JS no posiciona.
+    if (window.matchMedia && window.matchMedia('(max-width: 640px)').matches) {
+      toolbar.style.left = ''; toolbar.style.top = '';
+      return;
+    }
+    var w = toolbar.offsetWidth, h = toolbar.offsetHeight;
+    var vw = window.innerWidth;
+    var left = Math.max(8, Math.min(vw - w - 8, x - w/2));
+    var top = Math.max(window.scrollY + 8, y - h - 8);
+    toolbar.style.left = left + 'px';
+    toolbar.style.top = top + 'px';
+  }
+
+  function onSelection(e){
+    if (e && e.target && toolbar.contains(e.target)) return;
+    if (e && e.target && e.target.closest && e.target.closest('.audio-pill')) return;
+    setTimeout(function(){
+      var idxs = getSelectedWordIdxs();
+      if (idxs.length === 0){ hideToolbar(); return; }
+      var sel = window.getSelection();
+      var range = sel.getRangeAt(0);
+      var rect = range.getBoundingClientRect();
+      if (rect.width === 0 && rect.height === 0){ hideToolbar(); return; }
+      var x = rect.left + window.scrollX + rect.width/2;
+      var y = rect.top + window.scrollY;
+      var m = buildMap();
+      // color "actual" de la selección: si todas las palabras subrayadas comparten color, ese; si no, ninguno
+      var present = idxs.map(function(i){ return m[i]; }).filter(Boolean);
+      var allSame = present.length === idxs.length && present.every(function(c){ return c === present[0]; });
+      var currentColor = allSame && present.length ? present[0] : null;
+      selectedIdxs = idxs;
+      showToolbar(x, y, currentColor);
+    }, 10);
+  }
+
+  document.addEventListener('mouseup', onSelection);
+  document.addEventListener('touchend', onSelection);
+  document.addEventListener('mousedown', function(e){
+    if (toolbar.contains(e.target)) return;
+    hideToolbar();
+  });
+  window.addEventListener('scroll', hideToolbar, { passive: true });
+  window.addEventListener('resize', hideToolbar);
+})();
+</script>
+
+<script>
+/* usabilidad-v1 */
+(function(){
+  var doc=document.documentElement;
+  function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+  function lsSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+
+  var gear=document.querySelector('.ui-gear'), panel=document.querySelector('.ui-panel');
+  if(gear&&panel){
+    gear.addEventListener('click',function(e){e.stopPropagation();var o=panel.classList.toggle('open');gear.setAttribute('aria-expanded',String(o));});
+    document.addEventListener('click',function(e){if(!panel.contains(e.target)&&!gear.contains(e.target)){panel.classList.remove('open');gear.setAttribute('aria-expanded','false');}});
+  }
+  function markActive(group,attr,val){
+    document.querySelectorAll('.ui-row[data-group="'+group+'"] button').forEach(function(btn){
+      btn.classList.toggle('active', btn.getAttribute(attr)===val);
+    });
+  }
+  var curTheme=lsGet('ui:theme')||'sepia';
+  markActive('theme','data-theme-val',curTheme);
+  document.querySelectorAll('[data-theme-val]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var v=btn.getAttribute('data-theme-val');
+      if(v==='oscuro')doc.removeAttribute('data-theme');else doc.setAttribute('data-theme',v);
+      lsSet('ui:theme',v); markActive('theme','data-theme-val',v);
+    });
+  });
+  var curFs=lsGet('ui:fontscale')||'1';
+  doc.style.setProperty('--font-scale',curFs);
+  markActive('fs','data-fs',curFs);
+  document.querySelectorAll('[data-fs]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var v=btn.getAttribute('data-fs');
+      doc.style.setProperty('--font-scale',v); lsSet('ui:fontscale',v); markActive('fs','data-fs',v);
+    });
+  });
+
+  var bar=document.querySelector('.read-progress > i'), ticking=false;
+  function updBar(){
+    var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+    var y=h.scrollTop||window.pageYOffset||0;
+    var pct=max>0?(y/max*100):0;
+    if(bar)bar.style.width=Math.min(100,Math.max(0,pct))+'%';
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(updBar);}},{passive:true});
+  window.addEventListener('resize',updBar); updBar();
+
+  var sub=document.querySelector('.chapter-subtitle');
+  if(sub&&!document.querySelector('.chapter-meta')){
+    var words=document.querySelectorAll('.prose .w, .chapter-title .w').length||0;
+    var mins=Math.max(1,Math.round(words/200));
+    var pe=document.querySelector('.audio-pill');
+    var dur=pe?pe.getAttribute('data-duration'):'';
+    var meta=document.createElement('p'); meta.className='chapter-meta';
+    meta.textContent='Lectura ≈ '+mins+' min'+(dur&&dur!=='0:00'?'  ·  audio '+dur:'');
+    sub.parentNode.insertBefore(meta, sub.nextSibling);
+  }
+
+  var pillEl=document.querySelector('.audio-pill');
+  var sk=pillEl?(pillEl.getAttribute('data-storage-key')||'default'):'default';
+  var SKEY='ui:scroll:'+sk, sticking=false;
+  function saveScroll(){var y=window.pageYOffset||document.documentElement.scrollTop||0;lsSet(SKEY,String(Math.round(y)));}
+  window.addEventListener('scroll',function(){if(!sticking){sticking=true;setTimeout(function(){saveScroll();sticking=false;},800);}},{passive:true});
+  window.addEventListener('beforeunload',saveScroll);
+  var savedY=parseInt(lsGet(SKEY)||'0',10);
+  if(savedY>600 && savedY<(document.documentElement.scrollHeight-window.innerHeight-200)){
+    var rr=document.createElement('button'); rr.className='resume-read';
+    rr.innerHTML='↓ Continuar donde ibas';
+    rr.addEventListener('click',function(){window.scrollTo({top:savedY,behavior:'smooth'});rr.classList.remove('show');});
+    document.body.appendChild(rr);
+    setTimeout(function(){rr.classList.add('show');},500);
+    setTimeout(function(){rr.classList.remove('show');},9000);
+  }
+
+  var audio=document.querySelector('.ap-audio');
+  var nextLink=document.querySelector('.nav-foot a.next');
+  if(audio&&nextLink){
+    var card=document.createElement('div'); card.className='next-card';
+    card.innerHTML='<div class="nc-label">Siguiente capítulo</div>'+
+      '<div class="nc-title"></div>'+
+      '<div class="nc-actions"><button class="nc-dismiss">Ahora no</button>'+
+      '<a class="nc-go">Reproducir →</a></div>';
+    card.querySelector('.nc-title').textContent=nextLink.textContent;
+    card.querySelector('.nc-go').setAttribute('href', nextLink.getAttribute('href')+'?autoplay=1');
+    document.body.appendChild(card);
+    audio.addEventListener('ended',function(){card.classList.add('show');});
+    card.querySelector('.nc-dismiss').addEventListener('click',function(){card.classList.remove('show');});
+  }
+  if(audio && /[?&]autoplay=1/.test(location.search)){
+    var go=function(){var p=audio.play();if(p&&p.catch)p.catch(function(){});};
+    if(audio.readyState>=2)go(); else audio.addEventListener('loadedmetadata',go,{once:true});
+  }
+})();
+</script>
+</body>
+</html>
