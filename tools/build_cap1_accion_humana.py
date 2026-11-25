@@ -14,11 +14,67 @@ EYEBROW = "Parte I · Fundamentos"
 TITLE = "Acción humana"
 SUBTITLE = "Saifedean Ammous — Principios de Economía"
 
+# ---- Figura 1: Phillips (inflación vs desempleo, EEUU, 61 años) ----
+PHILLIPS_POINTS = [
+    (-0.4, 9.2), (0.1, 5.2), (1.0, 6.6), (1.2, 8.0), (1.2, 5.5), (1.2, 4.8),
+    (1.3, 5.5), (1.4, 7.3), (1.5, 5.6), (1.5, 4.5), (1.6, 9.5), (1.6, 6.1),
+    (1.6, 4.5), (1.8, 3.6), (1.9, 6.9), (2.0, 8.0), (2.1, 4.3), (2.1, 4.1),
+    (2.2, 5.9), (2.3, 4.9), (2.4, 3.9), (2.6, 6.0), (2.6, 5.5), (2.7, 3.9),
+    (2.8, 4.7), (2.8, 4.5), (2.9, 5.5), (2.9, 6.9), (3.0, 7.4), (3.0, 3.8),
+    (3.1, 5.3), (3.1, 8.9), (3.2, 9.5), (3.2, 4.6), (3.2, 5.5), (3.3, 4.0),
+    (3.4, 5.0), (3.4, 6.2), (3.5, 7.1), (3.6, 6.1), (3.8, 5.7), (4.0, 5.4),
+    (4.2, 6.7), (4.2, 7.5), (4.2, 5.9), (4.2, 3.6), (4.6, 5.4), (4.8, 5.2),
+    (5.3, 5.6), (5.4, 3.5), (5.7, 7.7), (5.8, 4.9), (6.1, 9.7), (6.1, 4.9),
+    (6.5, 7.0), (7.6, 6.0), (9.1, 8.4), (10.3, 7.5), (11.0, 5.5), (11.2, 5.8),
+    (13.5, 7.1),
+]
+
+def phillips_svg():
+    X0, X1 = 70, 690
+    Y_TOP, Y_BOT = 30, 360
+    sx = lambda v: X0 + (max(v, 0) / 15.0) * (X1 - X0)
+    sy = lambda v: Y_BOT - (v / 15.0) * (Y_BOT - Y_TOP)
+    grid = []
+    for v in (5, 10, 15):
+        grid.append(f'<line x1="{sx(v):.1f}" y1="{Y_TOP}" x2="{sx(v):.1f}" y2="{Y_BOT}" class="grid"/>')
+        grid.append(f'<line x1="{X0}" y1="{sy(v):.1f}" x2="{X1}" y2="{sy(v):.1f}" class="grid"/>')
+    axes = (
+        f'<line x1="{X0}" y1="{Y_BOT}" x2="{X1}" y2="{Y_BOT}" class="axis"/>'
+        f'<line x1="{X0}" y1="{Y_TOP}" x2="{X0}" y2="{Y_BOT}" class="axis"/>'
+    )
+    xlab = ''.join(
+        f'<text x="{sx(v):.1f}" y="{Y_BOT + 18}" class="tick-label" text-anchor="middle">{v} %</text>'
+        for v in (0, 5, 10, 15)
+    )
+    ylab = ''.join(
+        f'<text x="{X0 - 10}" y="{sy(v) + 4:.1f}" class="tick-label" text-anchor="end">{v} %</text>'
+        for v in (0, 5, 10, 15)
+    )
+    pts = ''.join(
+        f'<circle cx="{sx(x):.1f}" cy="{sy(y):.1f}" r="4.5" class="pt"/>'
+        for (x, y) in PHILLIPS_POINTS
+    )
+    return (
+        '<svg class="phillips-chart" viewBox="0 0 720 410" '
+        'xmlns="http://www.w3.org/2000/svg" role="img" '
+        'aria-label="Dispersión de inflación y desempleo en EEUU: no hay trade-off visible">'
+        f'<g>{"".join(grid)}</g>'
+        f'<g>{axes}</g>'
+        f'<g>{xlab}</g>'
+        f'<g>{ylab}</g>'
+        '<text x="380" y="402" class="axis-title" text-anchor="middle">Inflación</text>'
+        '<text x="22" y="195" class="axis-title" text-anchor="middle" '
+        'transform="rotate(-90 22 195)">Desempleo</text>'
+        f'<g>{pts}</g>'
+        '</svg>'
+    )
+
 # Items soportados:
-#   "texto"                 → párrafo normal <p>
-#   ("lead", texto)         → primer párrafo con capital <p class="lead">
-#   ("section", título)     → subtítulo de sección <h2 class="section-subtitle">
-#   ("quote", texto, cite)  → cita en bloque; cite no se narra
+#   "texto"                   → párrafo normal <p>
+#   ("lead", texto)           → primer párrafo con capital <p class="lead">
+#   ("section", título)       → subtítulo de sección <h2 class="section-subtitle">
+#   ("quote", texto, cite)    → cita en bloque; cite no se narra
+#   ("figure", svg, caption)  → figura en aside.no-audio (NO se narra)
 CONTENT = [
     # Epígrafe
     ("quote",
@@ -94,7 +150,9 @@ CONTENT = [
 
     'Pero las identidades contables no denotan causalidad en el mundo real. En macroeconomía no hay mecanismos para establecer experimentalmente la causalidad como en las ciencias naturales. Las ecuaciones de Keynes que intentan predecir el impacto de una medida agregada sobre otra no guardan relación con causas y efectos reales, porque no hay forma de medir, testear y verificar nada de ello.',
 
-    'Ninguna investigación puede ensayar la hipótesis de Keynes, porque no se puede experimentar con economías enteras compuestas por millones de personas con planes de vida individuales. Incluso al observar las estadísticas gubernamentales recopiladas por los partidarios de la teoría, la experiencia real ha contradicho la teoría durante décadas. El sistema keynesiano implica una relación inversa entre desempleo e inflación, llamada curva de Phillips, que se supone descendente. Pero sesenta años de estadísticas del gobierno de Estados Unidos no muestran ningún <em>trade-off</em> visible entre ambas variables.',
+    'Ninguna investigación puede ensayar la hipótesis de Keynes, porque no se puede experimentar con economías enteras compuestas por millones de personas con planes de vida individuales. Incluso al observar las estadísticas gubernamentales recopiladas por los partidarios de la teoría, la experiencia real ha contradicho la teoría durante décadas. El sistema keynesiano implica una relación inversa entre desempleo e inflación, llamada curva de Phillips, que se supone descendente. Pero la experiencia en el mundo real contradice esta idea, ya que la figura 1, con datos de sesenta años de estadísticas del gobierno de Estados Unidos, no muestra tal <em>trade-off</em>.',
+
+    ("figure", phillips_svg(), "Figura 1 · Inflación y desempleo en Estados Unidos (61 años). La nube de puntos no muestra ninguna pendiente descendente: no hay <em>trade-off</em> visible."),
 
     'Sin embargo, esta teoría persiste hasta el día de hoy, a pesar de décadas de evidencia acumulada que prueban que no es una explicación correcta de cómo funciona el mundo. En los setenta, cuando la inflación y el desempleo aumentaron al mismo tiempo en todo el mundo, el <em>trade-off</em> keynesiano quedó ampliamente refutado más allá de toda duda. Pero la ventaja de que la economía no disponga de un método sistemático y reproducible de experimentación es que las teorías siempre pueden ajustarse tras su fracaso, de forma que puedan justificar las observaciones del mundo real que no se ajustan a ellas. Esa es la esencia de la pseudociencia.',
 
@@ -124,7 +182,7 @@ CONTENT = [
     'El mundo ya cuenta con demasiados libros de texto de economía escritos en la tradición cuantitativa pseudocientífica. Este libro no será uno de ellos. No tratará de explicar la economía en el lenguaje de las ciencias naturales y no contendrá ecuaciones que relacionen variables agregadas. Tales enfoques prometen mucho, pero aportan poco en términos de conocimientos confiables, útiles y aplicables.',
 ]
 
-# CSS extra: subtítulos de sección + citas en bloque
+# CSS extra: subtítulos de sección + citas en bloque + figuras SVG
 EXTRA_CSS = """
 /* ===== Subtítulos de sección ===== */
 .prose h2.section-subtitle {
@@ -144,6 +202,29 @@ EXTRA_CSS = """
 .prose .pull-quote cite {
   display: block; font-style: italic; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft);
 }
+/* ===== Figuras / gráficos en el formato del libro ===== */
+.prose .chart-fig {
+  margin: 2.6rem 0;
+  padding: 0;
+  text-align: center;
+}
+.prose .chart-fig svg {
+  width: 100%; max-width: 640px; height: auto;
+  display: block; margin: 0 auto;
+}
+.prose .chart-fig .figcaption {
+  margin: 1rem auto 0;
+  max-width: 34rem;
+  font-size: 0.86rem; font-style: italic; line-height: 1.55;
+  color: var(--ink-soft); text-align: center;
+}
+.phillips-chart .grid  { stroke: var(--rule);     stroke-width: 0.8; fill: none; }
+.phillips-chart .axis  { stroke: var(--ink-soft); stroke-width: 1.2; fill: none; }
+.phillips-chart .tick-label  { fill: var(--ink-soft); font-size: 12px;
+  font-family: var(--font-body); font-variant-numeric: tabular-nums; }
+.phillips-chart .axis-title  { fill: var(--ink); font-size: 13px;
+  font-style: italic; font-family: var(--font-body); }
+.phillips-chart .pt    { fill: var(--verde); opacity: 0.88; }
 """
 
 
@@ -167,6 +248,13 @@ def main():
             parts.append(f'      <p>{qtext}</p>\n')
             parts.append(f'      <cite class="no-audio">{cite}</cite>\n')
             parts.append('    </blockquote>\n\n')
+        elif it[0] == "figure":
+            _, svg, caption = it
+            # aside.no-audio para que extract_text.py salte TODA la figura
+            parts.append('\n    <aside class="no-audio chart-fig">\n')
+            parts.append(f'      {svg}\n')
+            parts.append(f'      <p class="figcaption">{caption}</p>\n')
+            parts.append('    </aside>\n\n')
     parts.append('\n  </div>\n\n</article>')
     article = ''.join(parts)
 
@@ -195,7 +283,8 @@ def main():
     n_par = sum(1 for it in CONTENT if isinstance(it, str) or (isinstance(it, tuple) and it[0] == "lead"))
     n_sec = sum(1 for it in CONTENT if isinstance(it, tuple) and it[0] == "section")
     n_q = sum(1 for it in CONTENT if isinstance(it, tuple) and it[0] == "quote")
-    print(f"accion-humana.html creado: {n_par} párrafos, {n_sec} secciones, {n_q} citas")
+    n_fig = sum(1 for it in CONTENT if isinstance(it, tuple) and it[0] == "figure")
+    print(f"accion-humana.html creado: {n_par} párrafos, {n_sec} secciones, {n_q} citas, {n_fig} figura(s)")
 
 
 if __name__ == "__main__":
