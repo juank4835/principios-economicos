@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- usabilidad-v1 -->
+<script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('ui:theme')||'sepia';if(t!=='oscuro')d.setAttribute('data-theme',t);}catch(e){}})();</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Principios Económicos — notas en audio</title>
+<style>
+:root {
+  --bg: #1c1c1c;
+  --surface: #262626;
+  --ink: #ebe9e4;
+  --ink-soft: #9a988f;
+  --rule: #3a3a38;
+  --verde: #FF7A18;
+  --font-body: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+}
+:root[data-theme="sepia"]{ --bg:#f3ead6; --surface:#e9dcc0; --ink:#2f2718; --ink-soft:#6e6048; --rule:#d6c9ab; }
+:root[data-theme="claro"]{ --bg:#fbf9f5; --surface:#eeeae3; --ink:#1a1916; --ink-soft:#5d584f; --rule:#e2ddd3; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: calc(19px * var(--font-scale, 1)); -webkit-font-smoothing: antialiased; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); line-height: 1.7;
+}
+.page { max-width: 720px; margin: 0 auto; padding: 5rem 1.5rem 8rem; }
+
+.cover { text-align: center; margin-bottom: 4rem; }
+.cover .kicker {
+  font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--verde); margin-bottom: 1.4rem;
+}
+.cover h1 {
+  font-size: 2.8rem; font-weight: 400; line-height: 1.1;
+  letter-spacing: -0.015em; margin-bottom: 0.8rem;
+}
+.cover .sub {
+  font-size: 1.1rem; font-style: italic; color: var(--ink-soft);
+  max-width: 30rem; margin: 0 auto;
+}
+.cover .autor {
+  margin-top: 2rem;
+  font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.cover .autor em { font-style: normal; color: var(--ink); }
+.ornament { text-align: center; color: var(--verde); letter-spacing: 0.5em; margin: 2.5rem 0 4rem; }
+
+.intro {
+  font-size: 0.98rem; color: var(--ink-soft);
+  border-left: 2px solid var(--rule); padding-left: 1.2rem;
+  margin-bottom: 3.5rem; font-style: italic;
+}
+
+.bloque { margin-bottom: 3.4rem; }
+.bloque-tit {
+  font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-soft); border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.6rem; margin-bottom: 1.1rem;
+}
+.bloque-desc {
+  font-size: 0.94rem; font-style: italic; color: var(--ink-soft);
+  margin-bottom: 1.4rem; margin-top: -0.6rem;
+}
+.cap { display: flex; align-items: baseline; gap: 0.9rem; padding: 0.55rem 0; }
+.cap .num {
+  font-size: 0.85rem; color: var(--ink-soft); min-width: 1.6rem;
+  font-variant-numeric: tabular-nums;
+}
+.cap a { color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.cap a:hover { border-bottom-color: var(--verde); }
+.cap.pend .titulo { color: var(--ink-soft); opacity: 0.65; }
+.cap .estado {
+  font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+  margin-left: auto; padding-left: 1rem; white-space: nowrap;
+}
+.cap .estado.ok { color: var(--verde); }
+.cap .estado.prog { color: #d9a441; }
+.cap .estado.todo { color: var(--ink-soft); opacity: 0.5; }
+
+@media (max-width: 640px) {
+  html { font-size: calc(17px * var(--font-scale, 1)); }
+  .page { padding: 3rem 1.2rem 5rem; }
+  .cover h1 { font-size: 2rem; }
+  .cap .estado { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="cover">
+    <div class="kicker">Notas de estudio en audio</div>
+    <h1>Principios Económicos</h1>
+    <p class="sub">Fundamentos de la acción humana, el valor, el dinero y el orden de mercado</p>
+    <p class="autor">a partir de <em>Saifedean Ammous</em></p>
+  </header>
+
+  <div class="ornament">• • •</div>
+
+  <p class="intro">
+    Notas de estudio del libro <em>Principios de Economía</em> de Saifedean Ammous,
+    grabadas para escuchar. Cada capítulo es un resumen conceptual, no un
+    reemplazo del libro. Misma voz y mismo formato que <em>Arregla el dinero,
+    arregla el mundo</em>.
+  </p>
+
+  <!-- PARTE I -->
+  <section class="bloque">
+    <div class="bloque-tit">Parte I · Fundamentos</div>
+    <p class="bloque-desc">Los cimientos: qué es la acción humana, de dónde sale el valor y por qué el tiempo es el recurso que lo organiza todo.</p>
+
+    <div class="cap pend"><span class="num">1</span><span class="titulo">Acción humana</span><span class="estado todo">Por escribir</span></div>
+    <div class="cap pend"><span class="num">2</span><span class="titulo">Valor</span><span class="estado todo">Por escribir</span></div>
+    <div class="cap pend"><span class="num">3</span><span class="titulo">Tiempo</span><span class="estado todo">Por escribir</span></div>
+  </section>
+
+  <!-- PARTE II -->
+  <section class="bloque">
+    <div class="bloque-tit">Parte II · Economía</div>
+    <p class="bloque-desc">Los factores productivos: trabajo, propiedad, capital, tecnología y energía. De qué están hechas las cosas que podemos producir.</p>
+
+    <div class="cap pend"><span class="num">4</span><span class="titulo">Trabajo</span><span class="estado todo">Por escribir</span></div>
+    <div class="cap pend"><span class="num">5</span><span class="titulo">Propiedad</span><span class="estado todo">Por escribir</span></div>
+    <div class="cap pend"><span class="num">6</span><span class="titulo">Capital</span><span class="estado todo">Por escribir</span></div>
+    <div class="cap pend"><span class="num">7</span><span class="titulo">Tecnología</span><span class="estado todo">Por escribir</span></div>
+    <div class="cap pend"><span class="num">8</span><span class="titulo">Energía y potencia</span><span class="estado todo">Por escribir</span></div>
+  </section>
+
+  <!-- PARTE III -->
+  <section class="bloque">
+    <div class="bloque-tit">Parte III · Orden de mercado</div>
+    <p class="bloque-desc">Comercio, dinero, mercado y capitalismo: cómo se coordinan los planes de millones de personas sin que nadie los dirija.</p>
+
+    <div class="cap pend"><span class="num">9</span><span class="titulo">Comercio</span><span class="estado todo">Por escribir</span></div>
+    <div class="cap pend"><span class="num">10</span><span class="titulo">Dinero</span><span class="estado todo">Por escribir</span></div>
+    <div class="cap pend"><span class="num">11</span><span class="titulo">Mercado</span><span class="estado todo">Por escribir</span></div>
+    <div class="cap pend"><span class="num">12</span><span class="titulo">Capitalismo</span><span class="estado todo">Por escribir</span></div>
+  </section>
+
+  <!-- PARTE IV -->
+  <section class="bloque">
+    <div class="bloque-tit">Parte IV · Economía monetaria</div>
+    <p class="bloque-desc">Preferencia temporal, crédito y expansión monetaria: por qué el tipo de dinero que usamos moldea la civilización que construimos.</p>
+
+    <div class="cap pend"><span class="num">13</span><span class="titulo">Preferencia temporal</span><span class="estado todo">Por escribir</span></div>
+    <div class="cap pend"><span class="num">14</span><span class="titulo">Crédito y banca</span><span class="estado todo">Por escribir</span></div>
+    <div class="cap pend"><span class="num">15</span><span class="titulo">Expansión monetaria</span><span class="estado todo">Por escribir</span></div>
+  </section>
+
+  <!-- PARTE V -->
+  <section class="bloque">
+    <div class="bloque-tit">Parte V · Civilización</div>
+    <p class="bloque-desc">Violencia, defensa y civilización: el marco institucional dentro del cual todo lo anterior puede funcionar — o fracasar.</p>
+
+    <div class="cap pend"><span class="num">16</span><span class="titulo">Violencia</span><span class="estado todo">Por escribir</span></div>
+    <div class="cap pend"><span class="num">17</span><span class="titulo">Defensa</span><span class="estado todo">Por escribir</span></div>
+    <div class="cap pend"><span class="num">18</span><span class="titulo">Civilización</span><span class="estado todo">Por escribir</span></div>
+  </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs y temporales
+*.log
+*.tmp
+*.bak
+
+# Variables de entorno
+.env
+.env.local
+
+# Audios de prueba/scratch (no van al repo)
+audio-pruebas/
+# (Los MP3s finales en /audio/ SÍ van al repo para que Pages los sirva
+#  con el Content-Type correcto. GitHub Releases no sirve para streaming.)
+
+# EPUB exportado (se regenera con pandoc)
+*.epub
+
+# temporales de empalme/pausas de audio
+audio/.splice_work/
+audio/.pause_work/
+.book.html
+
+# PDF se mantiene fuera del repo (el libro vive como MD + web)
+arregla-el-dinero.pdf
