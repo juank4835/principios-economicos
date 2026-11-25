@@ -118,13 +118,15 @@ def fig4_commodities():
         cls = "row-name hl" if highlight else "row-name"
         return (
             f'<text x="{x + label_w - name_pad}" y="{y + row_h*0.72:.1f}" class="{cls}" text-anchor="end">{name}</text>'
-            # barra precio (negativa, crece hacia la izquierda del eje medio)
+            # barra precio (negativa): crece hacia la izquierda del separador medio
             f'<rect x="{x + label_w + (bar_w - pct_bar_w):.1f}" y="{y + 2}" width="{pct_bar_w:.1f}" height="{row_h - 4}" class="bar-neg"/>'
-            f'<text x="{x + label_w + bar_w - pct_bar_w - 4:.1f}" y="{y + row_h*0.72:.1f}" class="row-val" text-anchor="end">{pct:.1f}%</text>'
+            # etiqueta % anclada al borde DERECHO de la columna de precio (siempre fija)
+            f'<text x="{x + label_w + bar_w - 3:.1f}" y="{y + row_h*0.72:.1f}" class="row-val-in" text-anchor="end">{pct:.1f}%</text>'
             # separador leve entre las dos barras
             f'<line x1="{x + label_w + bar_w + 4}" y1="{y + 2}" x2="{x + label_w + bar_w + 4}" y2="{y + row_h - 2}" class="row-sep"/>'
-            # barra abundancia (positiva, crece hacia la derecha)
+            # barra abundancia (positiva): crece hacia la derecha desde el separador
             f'<rect x="{x + label_w + bar_w + 8:.1f}" y="{y + 2}" width="{mul_bar_w:.1f}" height="{row_h - 4}" class="bar-pos"/>'
+            # etiqueta × al final de la barra positiva
             f'<text x="{x + label_w + bar_w + 8 + mul_bar_w + 4:.1f}" y="{y + row_h*0.72:.1f}" class="row-val">{mul:.2f}×</text>'
         )
 
@@ -205,7 +207,7 @@ def fig5_oil():
         f'</g>'
     )
     return (
-        '<svg class="series-fig" viewBox="0 0 720 360" '
+        '<svg class="series-fig" viewBox="0 0 720 380" '
         'xmlns="http://www.w3.org/2000/svg" role="img" '
         'aria-label="Consumo y reservas probadas de petróleo, 1980-2020 (miles de millones de barriles)">'
         f'<g>{grid}</g>'
@@ -214,7 +216,7 @@ def fig5_oil():
         f'<g>{ylab}</g>'
         f'<polyline points="{res_pts}" class="line-reserves" fill="none"/>'
         f'<polyline points="{con_pts}" class="line-consumption" fill="none"/>'
-        '<text x="380" y="352" class="axis-title" text-anchor="middle">Miles de millones de barriles</text>'
+        '<text x="380" y="373" class="axis-title" text-anchor="middle">Miles de millones de barriles</text>'
         f'{legend}'
         '</svg>'
     )
@@ -473,6 +475,8 @@ EXTRA_CSS = """
                                font-family: var(--font-body); }
 .commodities-fig .row-name.hl { fill: var(--verde); font-style: italic; }
 .commodities-fig .row-val    { fill: var(--ink-soft); font-size: 8.5px;
+                               font-family: var(--font-body); font-variant-numeric: tabular-nums; }
+.commodities-fig .row-val-in { fill: var(--bg); font-size: 8.5px; font-weight: 600;
                                font-family: var(--font-body); font-variant-numeric: tabular-nums; }
 .commodities-fig .bar-neg    { fill: var(--ink-soft); opacity: 0.55; }
 .commodities-fig .bar-pos    { fill: var(--verde);    opacity: 0.80; }
