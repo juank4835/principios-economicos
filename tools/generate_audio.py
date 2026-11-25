@@ -194,13 +194,40 @@ def main():
         ffmpeg_normalize(raw, nrm)
         dur = ffprobe_duration(nrm)
         pieces.append(nrm)
+        # Dos filtros para que spans HTML y alignment cuadren 1:1:
+        #  1) Descartar tokens que son solo puntuación (— · «%» etc.):
+        #     ElevenLabs los devuelve como palabras del alignment, pero
+        #     inject_word_spans (que envuelve con \w+) no los detecta en
+        #     el HTML y se desalinea el karaoke.
+        #  2) Partir tokens con guión interior («Hans-Hermann», «trade-off»):
+        #     ElevenLabs los devuelve como un solo token, pero \w+ en el
+        #     HTML los parte en dos spans. Repartimos el tiempo proporcional-
+        #     mente al número de caracteres de cada parte.
+        def split_hyphen(txt, s, e):
+            if '-' not in txt:
+                return [(txt, s, e)]
+            parts = txt.split('-')
+            if not all(re.search(r'\w', p) for p in parts):
+                return [(txt, s, e)]
+            total = sum(len(p) for p in parts)
+            out, cur = [], s
+            for p in parts:
+                frac = len(p) / total
+                nxt = cur + (e - s) * frac
+                out.append((p, cur, nxt))
+                cur = nxt
+            return out
+
         for w in words:
-            all_words.append({
-                "i": len(all_words),
-                "t": w["text"],
-                "s": round(w["start"] + cum_offset, 3),
-                "e": round(w["end"] + cum_offset, 3),
-            })
+            if not re.search(r'\w', w["text"]):
+                continue
+            for txt, s, e in split_hyphen(w["text"], w["start"], w["end"]):
+                all_words.append({
+                    "i": len(all_words),
+                    "t": txt,
+                    "s": round(s + cum_offset, 3),
+                    "e": round(e + cum_offset, 3),
+                })
         cum_offset += dur
         print(f"  {dur:.2f}s, palabras: {len(words)}, total: {cum_offset:.2f}s / {len(all_words)} palabras")
 
